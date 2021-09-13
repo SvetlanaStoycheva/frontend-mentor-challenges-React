@@ -1,8 +1,14 @@
 import React, { useState } from 'react';
-import data from './data';
-import List from './List';
+import Navbar from './components/Navbar';
+import Hero from './components/Hero';
+
 function App() {
-  return <h2>Project 0</h2>;
+  return (
+    <>
+      <Navbar />
+      <Hero />
+    </>
+  );
 }
 
 export default App;
