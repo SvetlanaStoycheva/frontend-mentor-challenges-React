@@ -4,7 +4,7 @@ import { FaBars } from 'react-icons/fa';
 import logo from '../images/logo.svg';
 
 const Navbar = () => {
-  const [showLinks, setShowLinks] = useState(true);
+  const [showLinks, setShowLinks] = useState(false);
   const linksContainerRef = useRef(null);
   const linksRef = useRef(null);
 
