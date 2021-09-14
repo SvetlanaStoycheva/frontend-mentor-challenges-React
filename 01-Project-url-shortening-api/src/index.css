@@ -14,10 +14,12 @@ Variables
 :root {
   /* primary color */
   --clr-primary-cyan: hsl(180, 66%, 49%);
+  --clr-primary-light-cyan: hsl(180, 47%, 75%);
   --clr-primary-dark-violet: hsl(257, 27%, 26%);
   --clr-primary-red: hsl(0, 87%, 67%);
 
   --clr-neutral-grey: hsl(0, 0%, 75%);
+  --clr-neutral-light-grey: hsl(220, 33%, 93%);
   --clr-neutral-greyish-violet: hsl(257, 7%, 63%);
   --clr-neutral-very-dark-blue: hsl(255, 11%, 22%);
   --clr-neutral-very-dark-violet: hsl(260, 8%, 14%);
@@ -228,7 +230,7 @@ Navbar
 }
 /*
 =============== 
-Navbar
+Hero
 ===============
 */
 .hero-center {
@@ -252,7 +254,7 @@ Navbar
   line-height: 3.5rem;
 }
 .hero-info p {
-  color: var(--clr-neutral-grey);
+  color: var(--clr-neutral-greyish-violet);
   line-height: 2rem;
   font-size: 1.2rem;
   margin: 2rem 0;
@@ -271,13 +273,14 @@ Navbar
   transition: var(--transition);
 }
 .hero-btn:hover {
-  opacity: 60%;
+  background: var(--clr-primary-light-cyan);
 }
 @media screen and (min-width: 800px) {
   .hero-center {
     grid-template-columns: 1fr auto;
     grid-template-areas: 'a b';
     column-gap: 2rem;
+    padding-bottom: 6rem;
   }
   .hero-image {
     width: 60vw;
@@ -305,5 +308,168 @@ Navbar
     padding: 1rem 2rem;
     font-size: 1rem;
     align-self: left;
+  }
+}
+/*
+=============== 
+Advanced section
+===============
+*/
+.advanced {
+  background: var(--clr-neutral-light-grey);
+}
+/* Form */
+.form-container {
+  background: url(./images/bg-shorten-mobile.svg) center/cover;
+  background-size: 100% auto;
+  display: grid;
+  grid-template-columns: 1fr;
+  align-items: center;
+  justify-content: center;
+  margin: 2rem;
+  border-radius: 10px;
+}
+.form-input,
+.form-btn {
+  margin: 0 2rem;
+  border: transparent;
+  border-radius: 10px;
+  padding: 1.2rem 2.4rem;
+}
+.form-input {
+  margin-bottom: 0.6rem;
+  margin-top: 2rem;
+}
+.form-input::placeholder {
+  font-size: 1.2rem;
+  color: var(--clr-neutral-grey);
+  letter-spacing: 0.1rem;
+  align-self: left;
+  justify-self: left;
+}
+.form-btn {
+  margin-top: 0.6rem;
+  margin-bottom: 2rem;
+  background: var(--clr-primary-cyan);
+  color: white;
+  font-size: 1.2rem;
+  letter-spacing: 0.1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: var(--transition);
+}
+.form-btn:hover {
+  background: var(--clr-primary-light-cyan);
+}
+@media screen and (min-width: 800px) {
+  .advanced-center {
+    margin: 0 6rem;
+  }
+  .form-container {
+    background: url(./images/bg-shorten-desktop.svg) center/cover;
+    grid-template-columns: 1fr auto;
+    column-gap: 2rem;
+    border-radius: 10px;
+  }
+  .form-input,
+  .form-btn {
+    padding: 1rem 2rem;
+    font-size: 1rem;
+    margin: 2.5rem 3rem;
+  }
+  .form-input {
+    margin-right: 0;
+  }
+
+  .form-btn {
+    margin-left: 0;
+  }
+}
+
+/* advanced statistics */
+.advanced-statistics {
+  margin: 5rem 2rem;
+  display: grid;
+  place-items: center;
+}
+.section-title {
+  color: var(--clr-neutral-very-dark-violet);
+  font-size: 2rem;
+}
+.advanced-statistics p {
+  color: var(--clr-neutral-greyish-violet);
+  margin-top: 2rem;
+  margin-bottom: 6rem;
+  text-align: center;
+}
+.statistic-container {
+  position: relative;
+  display: grid;
+  background: white;
+  border-radius: 2%;
+  margin-bottom: 6rem;
+  padding: 2rem;
+  padding-top: 4rem;
+}
+.statistic-container p {
+  margin-bottom: 1rem;
+}
+.statistic-container h3 {
+  text-align: center;
+}
+.statistic-container img {
+  padding: 1.7rem;
+  width: 6rem;
+}
+.statistic-icon {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  top: 0;
+  left: 50%;
+  border-radius: 50%;
+  background: var(--clr-primary-dark-violet);
+}
+@media screen and (min-width: 800px) {
+  .statistics-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    column-gap: 2rem;
+  }
+  .section-title {
+    font-size: 1.8rem;
+  }
+  .advanced-statistics p {
+    margin-top: 1.5rem;
+    max-width: 30rem;
+    font-size: 1rem;
+  }
+  .advanced-statistics h3 {
+    font-size: 1.2rem;
+    text-align: left;
+  }
+  .statistic-container {
+    justify-content: left;
+    padding: 2rem 1.5rem;
+    padding-top: 4rem;
+    height: 16rem;
+  }
+  .statistic-container p {
+    margin-bottom: 0rem;
+    font-size: 1rem;
+    text-align: left;
+    margin-top: 0;
+  }
+  .statistic-container img {
+    padding: 1.2rem;
+    width: 5rem;
+  }
+  .statistic-icon {
+    left: 25%;
+  }
+  .statistic1 {
+    margin-top: 3rem;
+  }
+  .statistic2 {
+    margin-top: 6rem;
   }
 }
