@@ -4,7 +4,7 @@ import heroImg from '../images/illustration-working.svg';
 function Hero() {
   return (
     <section className='hero-center'>
-      <img src={heroImg} alt='hero-image' />
+      <img src={heroImg} alt='hero' />
       <div className='hero-info'>
         <h2>More than just shorter links</h2>
         <p>

@@ -320,6 +320,7 @@ Advanced section
 }
 /* Form */
 .form-container {
+  position: relative;
   background: url(./images/bg-shorten-mobile.svg) center/cover;
   background-size: 100% auto;
   display: grid;
@@ -361,6 +362,57 @@ Advanced section
 .form-btn:hover {
   background: var(--clr-primary-light-cyan);
 }
+/* alarm and link result container */
+.alarm-form-input {
+  border: var(--clr-primary-red) solid 3px;
+}
+.alarm-form-input::placeholder {
+  color: var(--clr-primary-red);
+}
+.alarm {
+  position: absolute;
+  color: var(--clr-primary-red);
+  left: 0%;
+  bottom: 0%;
+  font-size: 1.2rem;
+}
+.link-result-container {
+  background-color: white;
+  margin: 1rem 2rem;
+  border-radius: var(--radius);
+  padding: 1rem 1.5rem;
+}
+.link-result-container p {
+  font-size: 1rem;
+  margin-bottom: 1rem;
+}
+.short-link {
+  color: var(--clr-primary-cyan);
+}
+.link-result-button {
+  background: var(--clr-primary-cyan);
+  color: white;
+  font-size: 1rem;
+  font-weight: 700;
+  padding: 0.5rem 1.2rem;
+  border: transparent;
+  border-radius: var(--radius);
+  cursor: pointer;
+  transition: var(--transition);
+}
+.link-result-button-copied {
+  background: var(--clr-primary-dark-violet);
+  color: white;
+  font-size: 1rem;
+  font-weight: 700;
+  padding: 0.5rem 1.2rem;
+  border: transparent;
+  border-radius: var(--radius);
+  cursor: pointer;
+}
+.link-result-button:hover {
+  background: var(--clr-primary-light-cyan);
+}
 @media screen and (min-width: 800px) {
   .advanced-center {
     margin: 0 6rem;
@@ -380,13 +432,53 @@ Advanced section
   .form-input {
     margin-right: 0;
   }
-
   .form-btn {
     margin-left: 0;
   }
-}
 
-/* advanced statistics */
+  /* alarm and link result container */
+  .alarm {
+    left: 5%;
+    bottom: 5%;
+    font-size: 1rem;
+  }
+  .link-result-container {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    justify-content: center;
+    align-items: center;
+    padding: 0.5rem 1.2rem;
+  }
+  .short-link-btn {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /* width: 10rem; */
+    margin-left: 1rem;
+  }
+  .link-result-container p {
+    font-size: 0.9rem;
+    margin-bottom: 0rem;
+  }
+  .short-link {
+    color: var(--clr-primary-cyan);
+  }
+  .link-result-button {
+    font-size: 0.9rem;
+    padding: 0.5rem 1.5rem;
+    margin-left: 1rem;
+  }
+  .link-result-button-copied {
+    font-size: 0.9rem;
+    padding: 0.5rem 1.5rem;
+    margin-left: 1rem;
+  }
+}
+/*
+=============== 
+Advanced statistics
+===============
+*/
 .advanced-statistics {
   margin: 5rem 2rem;
   display: grid;

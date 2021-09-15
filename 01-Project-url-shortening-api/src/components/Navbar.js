@@ -16,14 +16,13 @@ const Navbar = () => {
     } else {
       linksContainerRef.current.style.height = `0`;
     }
-    console.log(linksContainerRef.current.style.height);
   }, [showLinks]);
 
   return (
     <nav>
       <div className='nav-center'>
         <div className='nav-header'>
-          <img src={logo} alt='logo-image' />
+          <img src={logo} alt='logo' />
           <button
             className='nav-toggle'
             onClick={() => setShowLinks(!showLinks)}
