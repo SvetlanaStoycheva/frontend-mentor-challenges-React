@@ -1,32 +1,65 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { advancedStatistics } from '../data';
 
 const url = 'https://api.shrtco.de/v2/shorten?url=';
 
+const getLocalStorage = () => {
+  let list = localStorage.getItem('list');
+  if (list) {
+    return JSON.parse(localStorage.getItem('list'));
+  } else {
+    return [];
+  }
+};
+
 function Advanced() {
   const [link, setLink] = useState('');
+  const [fetchError, setFetchError] = useState(false);
   const [validLink, setValidLink] = useState(true);
   const [shortedLink, setShortedLink] = useState('');
   const [copy, setCopy] = useState(false);
   const [copyText, setCopyText] = useState('Copy');
+  const [list, setList] = useState(getLocalStorage());
 
   const fetchData = async () => {
-    const response = await fetch(`${url}${link}`);
-    const data = await response.json();
-    // console.log(data);
-    const { full_short_link: shortLink } = data.result;
-    setShortedLink(shortLink);
+    try {
+      const response = await fetch(`${url}${link}`);
+      const data = await response.json();
+      console.log(data);
+      const {
+        full_short_link: shortLink,
+        original_link: longLink,
+      } = data.result;
+      setShortedLink(shortLink);
+      setLink(longLink);
+
+      const newLink = {
+        id: new Date().getTime().toString(),
+        longLink: link,
+        shortLink: shortedLink,
+      };
+      setList([...list, newLink]);
+
+      setValidLink(true);
+      setFetchError(false);
+    } catch (error) {
+      console.log(error);
+      setFetchError(true);
+    }
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
     if (link) {
       fetchData();
-      setValidLink(true);
     } else {
       setValidLink(false);
     }
   };
+
+  useEffect(() => {
+    localStorage.setItem('list', JSON.stringify(list));
+  }, [list]);
 
   const handleCopy = () => {
     navigator.clipboard.writeText(shortedLink);
@@ -50,7 +83,8 @@ function Advanced() {
           <button type='submit' className='form-btn submit-btn'>
             Shorten it!
           </button>
-          {!validLink && <p className='alarm'>Please add a link</p>}
+          {(!validLink && <p className='alarm'>Please add a link</p>) ||
+            (fetchError && <p className='alarm'>Please add a valid link</p>)}
         </form>
         {validLink && link && (
           <div className='link-result-container'>
