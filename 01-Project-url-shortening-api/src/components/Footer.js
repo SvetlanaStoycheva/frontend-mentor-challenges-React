@@ -62,6 +62,25 @@ function Footer() {
           </div>
         </div>
       </footer>
+      <div className='attribution'>
+        Challenge by
+        <a
+          href='https://www.frontendmentor.io?ref=challenge'
+          target='_blank'
+          rel='noopener noreferrer'
+        >
+          Frontend Mentor
+        </a>
+        . Coded by{' '}
+        <a
+          target='_blank'
+          rel='noopener noreferrer'
+          href='https://github.com/SvetlanaStoycheva/frontend-mentor-challenges-React-JS/tree/main/01-Project-url-shortening-api'
+        >
+          Sweta
+        </a>
+        .
+      </div>
     </>
   );
 }

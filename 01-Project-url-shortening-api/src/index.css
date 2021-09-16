@@ -377,14 +377,30 @@ Advanced section
   font-size: 1.2rem;
 }
 .link-result-container {
+  position: relative;
   background-color: white;
   margin: 1rem 2rem;
   border-radius: var(--radius);
   padding: 1rem 1.5rem;
 }
+.close-btn {
+  position: absolute;
+  background: transparent;
+  border: transparent;
+  font-size: 2rem;
+  color: var(--clr-neutral-greyish-violet);
+  top: 1rem;
+  right: 1rem;
+  cursor: pointer;
+  transition: var(--transition);
+}
+.close-btn:hover {
+  transform: scale(1.2);
+}
 .link-result-container p {
   font-size: 1rem;
   margin-bottom: 1rem;
+  margin-right: 2rem;
 }
 .short-link {
   color: var(--clr-primary-cyan);
@@ -459,6 +475,7 @@ Advanced section
   .link-result-container p {
     font-size: 0.9rem;
     margin-bottom: 0rem;
+    margin-right: 0;
   }
   .short-link {
     color: var(--clr-primary-cyan);
@@ -467,11 +484,15 @@ Advanced section
     font-size: 0.9rem;
     padding: 0.5rem 1.5rem;
     margin-left: 1rem;
+    margin-right: 3rem;
   }
   .link-result-button-copied {
     font-size: 0.9rem;
     padding: 0.5rem 1.5rem;
     margin-left: 1rem;
+  }
+  .close-btn {
+    top: 10%;
   }
 }
 /*
@@ -685,4 +706,12 @@ footer {
     letter-spacing: 0.03rem;
     margin: 0.8rem 0;
   }
+}
+/* FM Footer */
+.attribution {
+  font-size: 14px;
+  text-align: center;
+}
+.attribution a {
+  color: hsl(320, 45%, 44%);
 }

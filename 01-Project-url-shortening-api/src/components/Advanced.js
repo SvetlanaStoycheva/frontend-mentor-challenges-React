@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { advancedStatistics } from '../data';
+import Alert from './Alert';
+import { FaTimes } from 'react-icons/fa';
 
 const url = 'https://api.shrtco.de/v2/shorten?url=';
 
@@ -14,37 +16,32 @@ const getLocalStorage = () => {
 
 function Advanced() {
   const [link, setLink] = useState('');
-  const [fetchError, setFetchError] = useState(false);
   const [validLink, setValidLink] = useState(true);
-  const [shortedLink, setShortedLink] = useState('');
-  const [copy, setCopy] = useState(false);
-  const [copyText, setCopyText] = useState('Copy');
   const [list, setList] = useState(getLocalStorage());
+  const [alert, setAlert] = useState({ show: false, msg: '' });
 
   const fetchData = async () => {
     try {
       const response = await fetch(`${url}${link}`);
       const data = await response.json();
-      console.log(data);
+      //   console.log(data);
       const {
         full_short_link: shortLink,
         original_link: longLink,
       } = data.result;
-      setShortedLink(shortLink);
-      setLink(longLink);
-
-      const newLink = {
-        id: new Date().getTime().toString(),
-        longLink: link,
-        shortLink: shortedLink,
-      };
-      setList([...list, newLink]);
+      if (shortLink) {
+        const newLink = {
+          id: new Date().getTime().toString(),
+          longLink: longLink,
+          shortLink: shortLink,
+        };
+        setList([...list, newLink]);
+      }
 
       setValidLink(true);
-      setFetchError(false);
     } catch (error) {
       console.log(error);
-      setFetchError(true);
+      showAlert(true, 'This is not a valid URL. Please add a valid link');
     }
   };
 
@@ -54,17 +51,33 @@ function Advanced() {
       fetchData();
     } else {
       setValidLink(false);
+      showAlert(true, 'Please add a link.');
     }
   };
 
+  const showAlert = (show = false, msg = '') => {
+    setAlert({ show, msg });
+  };
   useEffect(() => {
     localStorage.setItem('list', JSON.stringify(list));
   }, [list]);
 
-  const handleCopy = () => {
-    navigator.clipboard.writeText(shortedLink);
-    setCopy(true);
-    setCopyText('Copied!');
+  const handleCopy = (e) => {
+    const currentBtn = e.currentTarget;
+    navigator.clipboard.writeText(currentBtn.previousSibling.textContent);
+    currentBtn.textContent = 'Copied';
+    currentBtn.classList.add('link-result-button-copied');
+
+    const timeout = setTimeout(() => {
+      currentBtn.textContent = 'Copy';
+      currentBtn.classList.remove('link-result-button-copied');
+      return () => clearTimeout(timeout);
+    }, 3000);
+  };
+
+  const deleteItem = (id) => {
+    const newList = list.filter((item) => item.id !== id);
+    setList(newList);
   };
 
   return (
@@ -83,26 +96,34 @@ function Advanced() {
           <button type='submit' className='form-btn submit-btn'>
             Shorten it!
           </button>
-          {(!validLink && <p className='alarm'>Please add a link</p>) ||
-            (fetchError && <p className='alarm'>Please add a valid link</p>)}
+          {alert.show && <Alert {...alert} showAlert={showAlert} list={list} />}
         </form>
-        {validLink && link && (
-          <div className='link-result-container'>
-            <p>{link}</p>
-            <div className='short-link-btn'>
-              <p className='short-link'>{shortedLink}</p>
-              <button
-                type='button'
-                className={`${
-                  copy ? 'link-result-button-copied' : 'link-result-button'
-                }`}
-                onClick={handleCopy}
-              >
-                {copyText}
-              </button>
-            </div>
-          </div>
-        )}
+        {list.length > 0 &&
+          list.map((item) => {
+            const { id, longLink, shortLink } = item;
+            return (
+              <div className='link-result-container' key={id}>
+                <button
+                  type='button'
+                  className='close-btn'
+                  onClick={() => deleteItem(id)}
+                >
+                  <FaTimes />
+                </button>
+                <p>{longLink}</p>
+                <div className='short-link-btn'>
+                  <p className='short-link'>{shortLink}</p>
+                  <button
+                    type='button'
+                    className={'link-result-button'}
+                    onClick={handleCopy}
+                  >
+                    Copy
+                  </button>
+                </div>
+              </div>
+            );
+          })}
 
         {/* Advanced Statistics */}
         <div className='advanced-statistics'>
