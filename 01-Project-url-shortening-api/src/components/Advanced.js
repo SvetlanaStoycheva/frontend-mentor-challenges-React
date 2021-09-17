@@ -16,7 +16,6 @@ const getLocalStorage = () => {
 
 function Advanced() {
   const [link, setLink] = useState('');
-  const [validLink, setValidLink] = useState(true);
   const [list, setList] = useState(getLocalStorage());
   const [alert, setAlert] = useState({ show: false, msg: '' });
 
@@ -36,12 +35,12 @@ function Advanced() {
           shortLink: shortLink,
         };
         setList([...list, newLink]);
+        setLink('');
       }
-
-      setValidLink(true);
     } catch (error) {
       console.log(error);
       showAlert(true, 'This is not a valid URL. Please add a valid link');
+      setLink('');
     }
   };
 
@@ -50,7 +49,6 @@ function Advanced() {
     if (link) {
       fetchData();
     } else {
-      setValidLink(false);
       showAlert(true, 'Please add a link.');
     }
   };
@@ -87,7 +85,7 @@ function Advanced() {
           <input
             type='text'
             className={`${
-              !validLink ? 'form-input alarm-form-input' : 'form-input'
+              alert.show ? 'form-input alarm-form-input' : 'form-input'
             }`}
             placeholder='Shorten a link here...'
             value={link}

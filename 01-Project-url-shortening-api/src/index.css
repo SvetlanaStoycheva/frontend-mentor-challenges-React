@@ -321,7 +321,8 @@ Advanced section
 /* Form */
 .form-container {
   position: relative;
-  background: url(./images/bg-shorten-mobile.svg) center/cover;
+  background: url(./images/bg-shorten-mobile.svg),
+    var(--clr-primary-dark-violet);
   background-size: 100% auto;
   display: grid;
   grid-template-columns: 1fr;
@@ -434,7 +435,8 @@ Advanced section
     margin: 0 6rem;
   }
   .form-container {
-    background: url(./images/bg-shorten-desktop.svg) center/cover;
+    background: url(./images/bg-shorten-desktop.svg),
+      var(--clr-primary-dark-violet) center/cover;
     grid-template-columns: 1fr auto;
     column-gap: 2rem;
     border-radius: 10px;
@@ -594,7 +596,8 @@ Footer
 */
 /* Get Started section */
 .get-started {
-  background: url(./images/bg-boost-mobile.svg) center/cover;
+  background: url(./images/bg-boost-mobile.svg), var(--clr-primary-dark-violet);
+  background-size: 100% auto;
   padding: 5rem 2rem;
   display: grid;
   place-items: center;
@@ -607,7 +610,8 @@ Footer
 }
 @media screen and (min-width: 920px) {
   .get-started {
-    background: url(./images/bg-boost-desktop.svg) center/cover;
+    background: url(./images/bg-boost-desktop.svg),
+      var(--clr-primary-dark-violet) center/cover;
     padding: 2.5rem 2rem;
   }
 }
