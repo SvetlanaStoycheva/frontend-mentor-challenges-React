@@ -13,7 +13,7 @@
 - For deployment on Netlify: copy/paste the project in a new folder and run in the terminal: npm run build. Drag and drop the build folder on Netlify.
 
 <p align-items: center>
-    <img src='../images/Screenshot-url-shortening-01.png' width='250'>
+    <img src='readme-images/Screenshot-url-shortening-01.png' width='250'>
 </p>
 <br/>
 
