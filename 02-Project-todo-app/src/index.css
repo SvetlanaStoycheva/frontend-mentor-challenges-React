@@ -1,0 +1,130 @@
+/*
+=============== 
+Fonts
+===============
+*/
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;700&display=swap');
+
+/*
+=============== 
+Variables
+===============
+*/
+
+:root {
+  /* primary/main color */
+  --clr-primary-bright-blue: hsl(220, 98%, 61%);
+  --check-bcg: linear-gradient hsl(192, 100%, 67%) to hsl(280, 87%, 65%);
+  /* light theme */
+  --theme-bg-mobile: url('./images/bg-mobile-light.jpg');
+  --theme-bg-desktop: url('./images/bg-desktop-light.jpg');
+  --bcg-color-container: hsl(0, 0%, 98%);
+  --bcg-color-tasks: white;
+  --clr-done-tasks: hsl(236, 33%, 92%);
+  --clr-tasks: hsl(236, 9%, 61%);
+  --clr-hover-task: hsl(235, 19%, 35%);
+  /* - Light Grayish Blue: hsl(233, 11%, 84%) */
+
+  /* dark theme */
+  /* - Very Dark Blue: hsl(235, 21%, 11%)
+- Very Dark Desaturated Blue: hsl(235, 24%, 19%)
+- Light Grayish Blue: hsl(234, 39%, 85%)
+- Light Grayish Blue (hover): hsl(236, 33%, 92%)
+- Dark Grayish Blue: hsl(234, 11%, 52%)
+- Very Dark Grayish Blue: hsl(233, 14%, 35%)
+- Very Dark Grayish Blue: hsl(237, 14%, 26%)  */
+
+  --ff-primary: 'Josefin+Sans', sans-serif;
+  --transition: all 0.3s linear;
+  --spacing: 0.1rem;
+  --radius: 0.25rem;
+  --light-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  --dark-blue-shadow: 0 5px 15px rgba(83, 104, 223, 0.2);
+  --dark-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  --max-width: 1440px;
+  --min-width: 375px;
+  --fs-size-sm: 1.125rem;
+}
+/*
+=============== 
+Global Styles
+===============
+*/
+
+*,
+::after,
+::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: var(--ff-primary);
+  font-size: var(--fs-size-sm);
+  transition: var(--transition);
+  margin: 0 auto;
+  height: 100vh;
+}
+.img {
+  display: block;
+  width: 100%;
+}
+.main {
+  display: grid;
+  place-items: center;
+  margin: 0 auto;
+}
+li {
+  list-style-type: none;
+}
+a {
+  text-decoration: none;
+}
+.btn {
+  background: var(--clr-primary-soft-blue);
+  padding: 1.2rem 1.2rem;
+  color: white;
+  border-radius: var(--radius);
+  border: transparent;
+  font-size: 1rem;
+  letter-spacing: 0.05rem;
+  font-weight: 600;
+  box-shadow: var(--dark-blue-shadow);
+  cursor: pointer;
+}
+.section-center {
+  width: 90vw;
+  margin: 0 auto;
+  max-width: 1170px;
+}
+@media screen and (min-width: 900px) {
+  .section-center {
+    width: 95vw;
+  }
+  .btn {
+    padding: 1.2rem 1.5rem;
+  }
+}
+/*
+=============== 
+Styles
+===============
+*/
+.ligth-theme {
+  --theme-bg-mobile: url('./images/bg-mobile-light.jpg');
+  --theme-bg-desktop: url('./images/bg-desktop-light.jpg');
+  --bcg-color-container: hsl(0, 0%, 98%);
+  --bcg-color-tasks: white;
+  --clr-done-tasks: hsl(236, 33%, 92%);
+  --clr-tasks: hsl(236, 9%, 61%);
+  --clr-hover-task: hsl(235, 19%, 35%);
+}
+.dark-theme {
+  --theme-bg-mobile: url('./images/bg-mobile-dark.jpg');
+  --theme-bg-desktop: url('./images/bg-desktop-dark.jpg');
+  --bcg-color-container: hsl(235, 21%, 11%);
+  --bcg-color-tasks: hsl(235, 24%, 19%);
+  --clr-done-tasks: hsl(234, 39%, 85%);
+  --clr-tasks: hsl(236, 9%, 61%);
+  --clr-hover-task: hsl(236, 33%, 92%);
+}
