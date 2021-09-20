@@ -14,7 +14,8 @@ Variables
 :root {
   /* primary/main color */
   --clr-primary-bright-blue: hsl(220, 98%, 61%);
-  --check-bcg: linear-gradient hsl(192, 100%, 67%) to hsl(280, 87%, 65%);
+  --check-bcg: linear-gradient(hsl(192, 100%, 67%), hsl(280, 87%, 65%));
+  --clr-light-gray: hsl(236, 33%, 92%);
   /* light theme */
   --theme-bg-mobile: url('./images/bg-mobile-light.jpg');
   --theme-bg-desktop: url('./images/bg-desktop-light.jpg');
@@ -118,6 +119,7 @@ Styles
   --clr-done-tasks: hsl(236, 33%, 92%);
   --clr-tasks: hsl(236, 9%, 61%);
   --clr-hover-task: hsl(235, 19%, 35%);
+  --border-btn: hsl(236, 9%, 61%);
 }
 .dark-theme {
   --theme-bg-mobile: url('./images/bg-mobile-dark.jpg');
@@ -127,4 +129,128 @@ Styles
   --clr-done-tasks: hsl(234, 39%, 85%);
   --clr-tasks: hsl(236, 9%, 61%);
   --clr-hover-task: hsl(236, 33%, 92%);
+  --border-btn: hsl(235, 19%, 35%);
 }
+.main {
+  display: relative;
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  background: var(--bcg-color-container);
+  height: 100vh;
+}
+.img-container {
+  position: absolute;
+  top: 0;
+}
+.bcg-image {
+  width: 100vw;
+  height: 17rem;
+
+  object-fit: cover;
+}
+.header {
+  position: absolute;
+  top: 10%;
+  left: 8%;
+  width: 80vw;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 50vw;
+  align-items: center;
+  justify-items: center;
+  padding: 0 1rem;
+  margin: 0 auto;
+}
+.header h2 {
+  color: white;
+  text-transform: uppercase;
+  font-size: 2rem;
+  letter-spacing: 0.8rem;
+}
+.toggleBtn {
+  background: transparent;
+  border: transparent;
+  color: white;
+  font-size: 1.6rem;
+  cursor: pointer;
+}
+@media screen and (min-width: 800px) {
+  .header {
+    top: 20%;
+    left: 22%;
+    column-gap: 12rem;
+    width: 60vw;
+  }
+  .header h2 {
+    font-size: 2.2rem;
+    letter-spacing: 1rem;
+    margin-left: 2rem;
+  }
+  .toggleBtn {
+    font-size: 1.8rem;
+    cursor: pointer;
+  }
+  .bcg-image {
+    height: 20rem;
+  }
+}
+/*
+=============== 
+Form
+===============
+*/
+.form-list-container {
+  position: absolute;
+  top: 24%;
+  width: 80vw;
+}
+
+.form-input {
+  border: transparent;
+  background: var(--bcg-color-tasks);
+  width: 100%;
+  padding: 1rem 5rem;
+  padding-right: 12rem;
+  border-radius: 6px;
+}
+form {
+  position: relative;
+}
+.form-btn {
+  position: absolute;
+  top: 24%;
+  left: 7%;
+  font-size: 1.25rem;
+  border: var(--border-btn) 2px solid;
+  border-radius: 50%;
+  color: var(--bcg-color-tasks);
+  background: transparent;
+  display: grid;
+  place-items: center;
+  transition: var(--transition);
+  cursor: pointer;
+}
+.form-btn:hover {
+  border-image-slice: 1;
+  border-image-source: var(--check-bcg);
+}
+@media screen and (min-width: 800px) {
+  .form-list-container {
+    top: 34%;
+    width: 50vw;
+  }
+  .form-input {
+    border: transparent;
+    width: 100%;
+    padding: 1rem 5rem;
+    padding-right: 12rem;
+    border-radius: 6px;
+  }
+}
+/*
+=============== 
+List
+===============
+*/
