@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import data from './data';
 import List from './List';
 import { RiSunFill } from 'react-icons/ri';
 import { FaMoon } from 'react-icons/fa';
@@ -83,7 +82,7 @@ function App() {
             />
           </form>
         </div>
-        <List />
+        <List list={list} />
       </div>
     </main>
   );
