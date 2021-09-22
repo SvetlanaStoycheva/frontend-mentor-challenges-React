@@ -16,24 +16,6 @@ Variables
   --clr-primary-bright-blue: hsl(220, 98%, 61%);
   --check-bcg: linear-gradient(hsl(192, 100%, 67%), hsl(280, 87%, 65%));
   --clr-light-gray: hsl(236, 33%, 92%);
-  /* light theme */
-  /* --theme-bg-mobile: url('./images/bg-mobile-light.jpg');
-  --theme-bg-desktop: url('./images/bg-desktop-light.jpg');
-  --bcg-color-container: hsl(0, 0%, 98%);
-  --bcg-color-tasks: white;
-  --clr-done-tasks: hsl(236, 33%, 92%);
-  --clr-tasks: hsl(236, 9%, 61%);
-  --clr-hover-task: hsl(235, 19%, 35%); */
-  /* - Light Grayish Blue: hsl(233, 11%, 84%) */
-
-  /* dark theme */
-  /* - Very Dark Blue: hsl(235, 21%, 11%)
-- Very Dark Desaturated Blue: hsl(235, 24%, 19%)
-- Light Grayish Blue: hsl(234, 39%, 85%)
-- Light Grayish Blue (hover): hsl(236, 33%, 92%)
-- Dark Grayish Blue: hsl(234, 11%, 52%)
-- Very Dark Grayish Blue: hsl(233, 14%, 35%)
-- Very Dark Grayish Blue: hsl(237, 14%, 26%)  */
 
   --ff-primary: 'Josefin+Sans', sans-serif;
   --transition: all 0.3s linear;
@@ -337,7 +319,9 @@ List
   border-bottom-left-radius: var(--radius);
   border-bottom-right-radius: var(--radius);
 }
-.footer-task-container p {
+.footer-task-container button {
+  border: transparent;
+  background: transparent;
   font-size: 0.8rem;
   color: var(--border-btn);
   letter-spacing: 0.02rem;
@@ -345,8 +329,8 @@ List
   cursor: pointer;
   transition: var(--transition);
 }
-.footer-task-container p:hover,
-.footer-list p:hover {
+.footer-task-container button:hover,
+.footer-list button:hover {
   color: var(--clr-tasks);
 }
 .big-screen-visible {
@@ -364,7 +348,9 @@ List
   box-shadow: var(--light-shadow);
   border-radius: var(--radius);
 }
-.footer-list p {
+.footer-list button {
+  border: transparent;
+  background: transparent;
   font-size: 1rem;
   color: var(--clr-footer-grey);
   letter-spacing: 0.02rem;
@@ -372,7 +358,9 @@ List
   cursor: pointer;
   transition: var(--transition);
 }
-
+.active-btn {
+  color: blue;
+}
 @media screen and (min-width: 800px) {
   .big-screen-visible {
     display: inline;
@@ -380,10 +368,10 @@ List
   .footer-list {
     display: none;
   }
-  .footer-task-container p {
+  .footer-task-container button {
     font-size: 0.7rem;
   }
-  .big-screen-visible-container p {
+  .big-screen-visible-container button {
     color: var(--clr-footer-grey);
     margin-left: 0.4rem;
     margin-right: 0.4rem;

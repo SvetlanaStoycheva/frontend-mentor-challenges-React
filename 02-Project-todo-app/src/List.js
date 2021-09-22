@@ -1,22 +1,48 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import { useListContext } from './context';
 import { IoMdClose } from 'react-icons/io';
 import { AiOutlineCheckCircle } from 'react-icons/ai';
 
-const List = ({ list }) => {
-  console.log(list);
+const List = () => {
+  const {
+    currentList,
+    deleteItem,
+    setTaskComleted,
+    showAll,
+    showActive,
+    showCompleted,
+    clearCompleted,
+  } = useListContext();
+
+  // const setTaskComleted = (e) => {
+  //   const currentButton = e.currentTarget;
+  //   currentButton.classList.add('task-btn-completed');
+  //   const currentTaskName = currentButton.nextSibling.firstChild;
+  //   currentTaskName.classList.add('task-text-completed');
+  //   currentTaskName.classList.remove('task-text');
+  // };
 
   return (
     <section className='section-list'>
-      {list.map((item) => {
-        const { id, task } = item;
+      {currentList.map((item) => {
+        const { id, task, active } = item;
         return (
-          <div className='single-task-container' key={id}>
-            <button type='button' className='task-btn '>
+          <div className=' single-task-container' key={id}>
+            <button
+              type='button'
+              className={`${
+                active ? 'task-btn' : 'task-btn task-btn-completed'
+              }`}
+              onClick={setTaskComleted}
+              id={id}
+            >
               <AiOutlineCheckCircle />
             </button>
             <div className='task-name'>
-              <p className=' task-text'>{task}</p>
-              <span className='close-btn-task'>
+              <p className={`${active ? 'task-text' : 'task-text-completed'}`}>
+                {task}
+              </p>
+              <span className='close-btn-task' onClick={() => deleteItem(id)}>
                 <IoMdClose />
               </span>
             </div>
@@ -24,18 +50,24 @@ const List = ({ list }) => {
         );
       })}
       <div className='footer-task-container'>
-        <p>5 items left</p>
+        <button>{currentList.length} items left</button>
         <div className='big-screen-visible-container'>
-          <p className='big-screen-visible'>All</p>
-          <p className='big-screen-visible'>Active</p>
-          <p className='big-screen-visible'>Completed</p>
+          <button className='big-screen-visible' onClick={showAll}>
+            All
+          </button>
+          <button className='big-screen-visible' onClick={showActive}>
+            Active
+          </button>
+          <button className='big-screen-visible' onClick={showCompleted}>
+            Completed
+          </button>
         </div>
-        <p>Clear Completed</p>
+        <button onClick={clearCompleted}>Clear Completed</button>
       </div>
       <div className='footer-list'>
-        <p>All</p>
-        <p>Active</p>
-        <p>Completed</p>
+        <button onClick={showAll}>All</button>
+        <button onClick={showActive}>Active</button>
+        <button onClick={showCompleted}>Completed</button>
       </div>
     </section>
   );

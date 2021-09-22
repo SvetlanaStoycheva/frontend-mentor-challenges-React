@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import List from './List';
+import { useListContext } from './context';
 import { RiSunFill } from 'react-icons/ri';
 import { FaMoon } from 'react-icons/fa';
 import { AiOutlineCheckCircle } from 'react-icons/ai';
@@ -15,38 +16,22 @@ const getStorageTheme = () => {
   return theme;
 };
 
-const getStorageList = () => {
-  let list = localStorage.getItem('list');
-  if (list) {
-    return JSON.parse(localStorage.getItem('list'));
-  } else {
-    return [];
-  }
-};
-
 function App() {
+  const { handleAddTask, taskInput } = useListContext();
   const [theme, setTheme] = useState(getStorageTheme());
-  const [task, setTask] = useState('');
-  const [list, setList] = useState(getStorageList());
 
   const handleToggle = () => {
     theme === 'light' ? setTheme('dark') : setTheme('light');
   };
+
+  // const handleSubmit = (e) => {
+  //   e.preventDefault();
+
+  // };
+
   useEffect(() => {
     localStorage.setItem('theme', theme);
   }, [theme]);
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    if (task) {
-      const newTask = { id: new Date().getTime().toString(), task: task };
-      setList([...list, newTask]);
-      setTask('');
-    }
-  };
-  useEffect(() => {
-    localStorage.setItem('list', JSON.stringify(list));
-  }, [list]);
 
   return (
     <main
@@ -69,7 +54,7 @@ function App() {
       </div>
       <div className='form-list-container'>
         <div className='form-container'>
-          <form onSubmit={handleSubmit}>
+          <form onSubmit={(e) => e.preventDefault()}>
             <button className='form-btn'>
               <AiOutlineCheckCircle />
             </button>
@@ -77,12 +62,12 @@ function App() {
               type='text'
               className='form-input'
               placeholder='Create a new todo...'
-              value={task}
-              onChange={(e) => setTask(e.target.value)}
+              value={taskInput}
+              onClick={(e) => handleAddTask(e.target.value)}
             />
           </form>
         </div>
-        <List list={list} />
+        <List />
       </div>
     </main>
   );
