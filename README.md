@@ -45,6 +45,8 @@
 - Clear all completed todos
 - Toggle light and dark mode
 
+3. IP Address Tracker
+
 #### For deployment on Netlify:
 
 copy/paste the project in a new folder and run in the terminal: npm run build. Drag and drop the build folder on Netlify. To update the project: open it on Netlify => Deploy button (up left), drag and drop build folder from the project from my desktop.

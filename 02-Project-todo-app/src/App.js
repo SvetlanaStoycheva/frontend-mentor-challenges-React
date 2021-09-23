@@ -9,11 +9,17 @@ import bcgLightImage from './images/bg-desktop-light.jpg';
 import bcgDarkImage from './images/bg-desktop-dark.jpg';
 
 const getStorageTheme = () => {
-  let theme = 'light';
-  if (localStorage.getItem(theme)) {
-    theme = localStorage.getItem('theme');
+  let theme = localStorage.getItem('theme');
+  if (theme) {
+    return localStorage.getItem('theme');
+  } else {
+    return 'light';
   }
-  return theme;
+  // let theme = 'light';
+  // if (localStorage.getItem(theme)) {
+  //   theme = localStorage.getItem('theme');
+  // }
+  // return theme;
 };
 
 function App() {
