@@ -31,11 +31,20 @@ const cart_reducer = (state, action) => {
     return { ...state };
   }
   if (action.type === 'SHOW_ACTIVE') {
-    return { ...state };
+    let active = [...state.currentList];
+    active = active.filter((item) => item.active === true);
+    return { ...state, activeTasks: active };
+  }
+  if (action.type === 'SHOW_COMPLETED') {
+    let completed = [...state.currentList];
+    completed = completed.filter((item) => item.active === false);
+    return { ...state, completedTasks: completed };
   }
   if (action.type === 'CLEAR_COMPLETED') {
-    const newList = state.currentList.filter((item) => item.active === true);
-    return { ...state, currentList: newList };
+    const newCurrentList = state.currentList.filter(
+      (item) => item.active === true
+    );
+    return { ...state, currentList: newCurrentList, completedTasks: [] };
   }
   throw new Error(`No Matching "${action.type}" - action type`);
 };

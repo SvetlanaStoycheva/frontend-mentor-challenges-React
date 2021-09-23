@@ -24,11 +24,6 @@ function App() {
     theme === 'light' ? setTheme('dark') : setTheme('light');
   };
 
-  // const handleSubmit = (e) => {
-  //   e.preventDefault();
-
-  // };
-
   useEffect(() => {
     localStorage.setItem('theme', theme);
   }, [theme]);

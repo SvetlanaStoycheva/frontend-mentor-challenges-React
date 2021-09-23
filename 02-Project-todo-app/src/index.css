@@ -192,12 +192,18 @@ Form
 }
 
 .form-input {
+  color: var(--clr-tasks);
+  font-size: 0.9rem;
   border: transparent;
   background: var(--bcg-color-tasks);
   width: 100%;
   padding: 1rem 5rem;
   padding-right: 12rem;
   border-radius: var(--radius);
+}
+input::placeholder {
+  color: var(--clr-tasks);
+  font-size: 0.9rem;
 }
 form {
   position: relative;
@@ -288,14 +294,14 @@ List
 }
 .task-text-completed {
   color: var(--border-btn);
-  font-size: 0.8rem;
+  font-size: 0.9rem;
   text-transform: capitalize;
   letter-spacing: 0.04rem;
   text-decoration: line-through;
 }
 
 .task-text {
-  font-size: 0.8rem;
+  font-size: 0.9rem;
   text-transform: capitalize;
   color: var(--clr-tasks);
   letter-spacing: 0.04rem;

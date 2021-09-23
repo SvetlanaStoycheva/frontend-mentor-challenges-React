@@ -14,14 +14,6 @@ const List = () => {
     clearCompleted,
   } = useListContext();
 
-  // const setTaskComleted = (e) => {
-  //   const currentButton = e.currentTarget;
-  //   currentButton.classList.add('task-btn-completed');
-  //   const currentTaskName = currentButton.nextSibling.firstChild;
-  //   currentTaskName.classList.add('task-text-completed');
-  //   currentTaskName.classList.remove('task-text');
-  // };
-
   return (
     <section className='section-list'>
       {currentList.map((item) => {
@@ -49,6 +41,7 @@ const List = () => {
           </div>
         );
       })}
+
       <div className='footer-task-container'>
         <button>{currentList.length} items left</button>
         <div className='big-screen-visible-container'>

@@ -12,7 +12,8 @@ const getStorageList = () => {
 
 const initialState = {
   currentList: getStorageList(),
-  //   allTasks: getStorageAllTasks(),
+  activeTasks: [],
+  completedTasks: [],
 };
 
 const ListContext = React.createContext();
@@ -44,10 +45,12 @@ export const Provider = ({ children }) => {
 
     dispatch({ type: 'SHOW_ALL' });
   };
-  const showActive = () => {
+  const showActive = (e) => {
     dispatch({ type: 'SHOW_ACTIVE' });
   };
-  const showCompleted = () => {};
+  const showCompleted = () => {
+    dispatch({ type: 'SHOW_COMPLETED' });
+  };
 
   const clearCompleted = () => {
     dispatch({ type: 'CLEAR_COMPLETED' });
