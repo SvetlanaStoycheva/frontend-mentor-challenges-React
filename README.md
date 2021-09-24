@@ -38,6 +38,7 @@
 
 2. Todo App
 
+- [see project](https://sweta-todo-app.netlify.app)
 - Add new todos to the list
 - Mark todos as complete
 - Delete todos from the list
@@ -46,6 +47,14 @@
 - Toggle light and dark mode
 
 3. IP Address Tracker
+
+- [see project]()
+- API: https://geo.ipify.org
+  - working with .env
+- map generator: https://leafletjs.com
+- what helped me:
+  - [React-Leaflet demo](https://www.youtube.com/watch?v=290VgjkLong)
+  - map showing bug: https://stackoverflow.com/questions/67552020/how-to-fix-error-failed-to-compile-node-modules-react-leaflet-core-esm-pat
 
 #### For deployment on Netlify:
 

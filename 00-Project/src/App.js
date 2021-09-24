@@ -1,8 +1,7 @@
-import React, { useState } from 'react';
-import data from './data';
-import List from './List';
+import React from 'react';
+
 function App() {
-  return <h2>Project 0</h2>;
+  return <h2>hello</h2>;
 }
 
 export default App;
