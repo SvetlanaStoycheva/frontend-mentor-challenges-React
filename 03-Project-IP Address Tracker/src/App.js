@@ -7,7 +7,13 @@ import { MdKeyboardArrowRight } from 'react-icons/md';
 function App() {
   const [inputIP, setInputIP] = useState('');
 
-  const handleSubmmit = (e) => {};
+  const handleSubmmit = (e) => {
+    e.preventDefault();
+    if (inputIP) {
+      setInputIP(inputIP);
+      console.log(inputIP);
+    }
+  };
 
   return (
     <main>
@@ -17,7 +23,7 @@ function App() {
       </div>
       <div className='content-container'>
         <h2>IP Address Tracker</h2>
-        <form className='form-container' onSubmit={(e) => e.preventDefault()}>
+        <form className='form-container'>
           <input
             type='text'
             className='ip-input'
@@ -29,7 +35,7 @@ function App() {
             <MdKeyboardArrowRight />
           </button>
         </form>
-        <Result />
+        <Result inputIP={inputIP} />
       </div>
     </main>
   );

@@ -2,20 +2,20 @@ import React, { useEffect, useState } from 'react';
 
 const apiKey = process.env.REACT_APP_ACCESS_KEY;
 
-function Result() {
-  const [ip, setIP] = useState('');
+function Result({ inputIP }) {
+  const [homeIP, setHomeIP] = useState('');
   const [result, setResult] = useState({});
 
-  const fetchYourIP = async () => {
+  const fetchYourHomeIP = async () => {
     const response = await fetch('https://geolocation-db.com/json/');
     const data = await response.json();
-    // console.log(data);
-    setIP(data.IPv4);
+    setHomeIP(data.IPv4);
+    fetchResultData();
   };
 
   const fetchResultData = async () => {
     const response = await fetch(
-      `https://geo.ipify.org/api/v1?apiKey=${apiKey}&ipAddress=130.204.43.70`
+      `https://geo.ipify.org/api/v1?apiKey=${apiKey}&ipAddress=${homeIP}`
     );
     const data = await response.json();
     // console.log(data);
@@ -25,10 +25,14 @@ function Result() {
   };
 
   useEffect(() => {
-    fetchYourIP();
-    fetchResultData();
+    fetchYourHomeIP();
   }, []);
-  // const { ip, region, city, postalCode, timezone, isp } = result;
+
+  useEffect(() => {
+    if (inputIP) {
+      // console.log(inputIP);
+    }
+  }, [inputIP]);
   return (
     <div className='result-container'>
       <div>
