@@ -152,6 +152,17 @@ Form
 .submit-btn:hover {
   background: var(--clr-primary-very-dark-gray);
 }
+/* error message */
+.error {
+  background: white;
+  color: red;
+  width: 22rem;
+  border-radius: 8px;
+  font-size: 0.8rem;
+  padding: 0.5rem;
+  margin-top: -1rem;
+  margin-bottom: 1rem;
+}
 @media screen and (min-width: 800px) {
   .form-container {
     display: flex;
@@ -175,6 +186,16 @@ Form
     font-size: 1.2rem;
     border-top-right-radius: 8px;
     border-bottom-right-radius: 8px;
+  }
+  .error {
+    width: 30vw;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    padding: 0.5rem;
+    margin-top: -1rem;
+    margin-bottom: 1rem;
+    margin-left: auto;
+    margin-right: auto;
   }
 }
 /*

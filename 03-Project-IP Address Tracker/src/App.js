@@ -6,13 +6,15 @@ import { MdKeyboardArrowRight } from 'react-icons/md';
 
 function App() {
   const [inputIP, setInputIP] = useState('');
+  const [ip, setIP] = useState('');
 
   const handleSubmmit = (e) => {
     e.preventDefault();
     if (inputIP) {
-      setInputIP(inputIP);
-      console.log(inputIP);
+      //in order to have the whole input after user stop typing
+      setIP(inputIP);
     }
+    setInputIP('');
   };
 
   return (
@@ -35,7 +37,7 @@ function App() {
             <MdKeyboardArrowRight />
           </button>
         </form>
-        <Result inputIP={inputIP} />
+        <Result ip={ip} />
       </div>
     </main>
   );
