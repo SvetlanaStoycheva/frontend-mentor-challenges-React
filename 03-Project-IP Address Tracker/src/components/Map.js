@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
-function MyMap({ x, y }) {
+
+function MyMap({ x, y, lat, lng }) {
   return (
     <MapContainer center={[x, y]} zoom={13} scrollWheelZoom={false}>
       <TileLayer

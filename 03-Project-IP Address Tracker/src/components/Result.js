@@ -1,60 +1,15 @@
 import React, { useEffect, useState } from 'react';
 import Alert from './Alert';
-
-const apiKey = process.env.REACT_APP_ACCESS_KEY;
 //test fetch IP: 192.212.174.101
 
-function Result({ ip }) {
-  const [homeIP, setHomeIP] = useState('');
-  const [result, setResult] = useState({});
-  const [error, setError] = useState(false);
-
-  const fetchYourHomeIP = async () => {
-    const response = await fetch('https://geolocation-db.com/json/');
-    const data = await response.json();
-    setHomeIP(data.IPv4);
-    fetchResultData();
-  };
-
-  const fetchResultData = async () => {
-    let response;
-    if (!ip) {
-      response = await fetch(
-        `https://geo.ipify.org/api/v1?apiKey=${apiKey}&ipAddress=${homeIP}`
-      );
-    } else {
-      response = await fetch(
-        `https://geo.ipify.org/api/v1?apiKey=${apiKey}&ipAddress=${ip}`
-      );
-    }
-    try {
-      const data = await response.json();
-      console.log(data);
-      const { ip, location, isp } = data;
-      const { region, city, postalCode, timezone, lat, lng } = location;
-      setResult({ ip, isp, region, city, postalCode, timezone, lat, lng });
-    } catch (error) {
-      console.log(error);
-      setError(true);
-    }
-  };
-
-  useEffect(() => {
-    fetchYourHomeIP();
-  }, []);
-
-  useEffect(() => {
-    // console.log(ip);
-    fetchResultData();
-  }, [ip]);
-
+function Result({ setError, error, result, searchIP }) {
   const closeAlarm = () => {
     setError(false);
   };
 
   return (
     <>
-      {error && <Alert ip={ip} closeAlarm={closeAlarm} />}
+      {error && <Alert searchIP={searchIP} closeAlarm={closeAlarm} />}
 
       <div className='result-container'>
         <div>
