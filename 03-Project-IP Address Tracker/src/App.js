@@ -8,6 +8,9 @@ function App() {
   const [inputIP, setInputIP] = useState('');
   const [ip, setIP] = useState('');
 
+  const x = 42.69751;
+  const y = 23.32415;
+
   const handleSubmmit = (e) => {
     e.preventDefault();
     if (inputIP) {
@@ -21,7 +24,7 @@ function App() {
     <main>
       <div className='bcg-container'>
         <img className='pattern-container' src={pattern} alt='' />
-        <MyMap />
+        <MyMap x={x} y={y} />
       </div>
       <div className='content-container'>
         <h2>IP Address Tracker</h2>

@@ -94,7 +94,8 @@ Styles
 .leaflet-container {
   width: 100vw;
   height: 30rem;
-  z-index: -2;
+  z-index: 0;
+  margin-top: -0.5rem;
 }
 .bcg-container {
   position: relative;
