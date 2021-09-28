@@ -48,7 +48,7 @@
 
 3. IP Address Tracker
 
-- [see project]()
+- [see project](https://sweta-fm-ip-tracker.netlify.app)
 - To get the IP Address locations, we'll be using the IP Geolocation API by IPify (https://geo.ipify.org). To generate the map, we are using LeafletJS (https://leafletjs.com).
 - Users see their own IP Address on the map on the initial page load. They can search for any IP addresses or domains and see the key information and location.
 - working with .env
@@ -63,4 +63,8 @@
 
 #### For deployment on Netlify:
 
-copy/paste the project in a new folder and run in the terminal: npm run build. Drag and drop the build folder on Netlify. To update the project: open it on Netlify => Deploy button (up left), drag and drop build folder from the project from my desktop.
+- copy/paste the project in a new folder and run in the terminal: npm run build. Drag and drop the build folder on Netlify. To update the project: open it on Netlify => Deploy button (up left), drag and drop build folder from the project from my desktop.
+
+- In the public folder => create \_redirects file => with the following content: /\* /index.html 200
+  In the package.json => "build": "CI= react-scripts build"
+  If we have .env file => on Netlify => in Build & deploy => Environment variables => copy/paste the name and the value

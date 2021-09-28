@@ -9,10 +9,11 @@ const Alert = () => {
       closeAlarm();
     }, 3000);
     return () => clearTimeout(timeout);
+    //eslint-disable-next-line
   }, [query]);
   return (
     <div className='error'>
-      <p>This is an invalid IP address domain</p>
+      <p>Please enter a valid domain e.g. "spacex.com"</p>
     </div>
   );
 };

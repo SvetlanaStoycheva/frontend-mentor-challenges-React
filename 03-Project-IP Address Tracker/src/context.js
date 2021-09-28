@@ -36,6 +36,7 @@ const AppProvider = ({ children }) => {
   };
   useEffect(() => {
     fetchUserIP();
+    //eslint-disable-next-line
   }, []);
 
   const fetchCurrentIP = async () => {
@@ -47,7 +48,7 @@ const AppProvider = ({ children }) => {
       );
     } else {
       response = await fetch(
-        `https://geo.ipify.org/api/v1?apiKey=${apiKey}&ipAddress=${state.query}`
+        `https://geo.ipify.org/api/v1?apiKey=${apiKey}&ipAddress=${state.query}&domain=${state.query}`
       );
     }
     try {
@@ -66,9 +67,6 @@ const AppProvider = ({ children }) => {
       dispatch({ type: 'SET_ERROR' });
     }
   };
-  // useEffect(() => {
-  //   fetchCurrentIP();
-  // }, [state.query]);
 
   const closeAlarm = () => {
     dispatch({ type: 'CLOSE_ALARM' });

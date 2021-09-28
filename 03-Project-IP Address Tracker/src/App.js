@@ -1,10 +1,8 @@
-import React, { useState } from 'react';
+import React from 'react';
 import pattern from './images/pattern-bg.png';
 import MyMap from './Map';
 import Result from './Result';
 import SearchForm from './SearchForm';
-
-import { useGlobalContext } from './context';
 
 function App() {
   return (

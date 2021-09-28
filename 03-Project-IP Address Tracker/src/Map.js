@@ -6,7 +6,7 @@ const MyMap = () => {
   const { currentIPData } = useGlobalContext();
   const { lat, lng } = currentIPData;
   if (lat && lng) {
-    console.log(currentIPData);
+    console.log(lat, lng);
 
     return (
       <MapContainer center={[lat, lng]} zoom={13} scrollWheelZoom={false}>
