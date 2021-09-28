@@ -29,6 +29,7 @@ const AppProvider = ({ children }) => {
       // console.log(data.IPv4);
 
       dispatch({ type: 'FETCH_USER_IP', payload: data.IPv4 });
+      fetchCurrentIP();
     } catch (error) {
       console.log(error);
     }
@@ -65,16 +66,18 @@ const AppProvider = ({ children }) => {
       dispatch({ type: 'SET_ERROR' });
     }
   };
-  useEffect(() => {
-    fetchCurrentIP();
-  }, [state.query]);
+  // useEffect(() => {
+  //   fetchCurrentIP();
+  // }, [state.query]);
 
   const closeAlarm = () => {
     dispatch({ type: 'CLOSE_ALARM' });
   };
 
   return (
-    <AppContext.Provider value={{ ...state, handleSearch, closeAlarm }}>
+    <AppContext.Provider
+      value={{ ...state, handleSearch, closeAlarm, fetchCurrentIP }}
+    >
       {children}
     </AppContext.Provider>
   );

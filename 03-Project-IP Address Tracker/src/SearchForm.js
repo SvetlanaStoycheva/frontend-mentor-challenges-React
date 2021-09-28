@@ -3,7 +3,7 @@ import { useGlobalContext } from './context';
 import { MdKeyboardArrowRight } from 'react-icons/md';
 
 const SearchForm = () => {
-  const { handleSearch, query } = useGlobalContext();
+  const { handleSearch, query, fetchCurrentIP } = useGlobalContext();
 
   return (
     <form className='form-container' onSubmit={(e) => e.preventDefault()}>
@@ -13,8 +13,9 @@ const SearchForm = () => {
         placeholder='Search for any IP address domain'
         value={query}
         onChange={(e) => handleSearch(e.target.value)}
+        // onChange={(e)=> setQuery(e.target.value)}
       />
-      <button type='submit' className='submit-btn'>
+      <button onClick={fetchCurrentIP} type='submit' className='submit-btn'>
         <MdKeyboardArrowRight />
       </button>
     </form>
