@@ -1,13 +1,12 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { useGlobalContext } from './context';
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
 
 const MyMap = () => {
   const { currentIPData } = useGlobalContext();
   const { lat, lng } = currentIPData;
-  if (lat && lng) {
-    console.log(lat, lng);
 
+  if (lat && lng) {
     return (
       <MapContainer center={[lat, lng]} zoom={13} scrollWheelZoom={false}>
         <TileLayer

@@ -61,6 +61,21 @@
 </p>
 <br/>
 
+4. Clock App
+
+- [see project]()
+- Using external APIs to set the data based on the visitor's location and generate random programming quotes. User can:
+
+  - View the current time and location information based on their IP address
+  - View additional information about the date and time in the expanded state
+  - Be shown the correct greeting and background image based on the time of day they're visiting the site
+  - Generate random programming quotes by clicking the refresh icon near the quote
+
+    <p align-items: center>
+      <img src='readme-images/Screenshot-api-tracker-01.png' width='250'>
+  </p>
+  <br/>
+
 #### For deployment on Netlify:
 
 - copy/paste the project in a new folder and run in the terminal: npm run build. Drag and drop the build folder on Netlify. To update the project: open it on Netlify => Deploy button (up left), drag and drop build folder from the project from my desktop.
