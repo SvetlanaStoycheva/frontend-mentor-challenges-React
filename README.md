@@ -75,6 +75,10 @@
       <img src='readme-images/Screenshot-api-tracker-01.png' width='250'>
   </p>
   <br/>
+  <p align-items: center>
+      <img src='readme-images/Screenshot-api-tracker-01.png' width='250'>
+  </p>
+  <br/>
 
 #### For deployment on Netlify:
 
