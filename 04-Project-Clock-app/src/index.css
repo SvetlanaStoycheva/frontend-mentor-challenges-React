@@ -186,6 +186,11 @@ Quote
   border: transparent;
   background: transparent;
   margin-left: 1rem;
+  transition: var(--transition);
+  cursor: pointer;
+}
+.quote-btn:hover {
+  opacity: 1;
 }
 /* 
 =============== 
@@ -217,8 +222,25 @@ Clock container
   background: transparent;
   margin-right: 1rem;
 }
+.current-hour {
+  display: flex;
+  align-items: baseline;
+}
 .current-hour h1 {
   font-size: 7rem;
+  margin-top: 0;
+  margin-bottom: 0;
+  margin-right: 1rem;
+  line-height: 100px;
+  letter-spacing: 0.2rem;
+}
+.current-hour h4 {
+  font-weight: 400;
+  font-size: 1rem;
+  letter-spacing: 0.1rem;
+}
+.loading {
+  font-size: 4rem;
   margin-top: 0;
   margin-bottom: 0;
   line-height: 100px;
@@ -227,4 +249,36 @@ Clock container
 .clock-container h3 {
   font-size: 0.9rem;
   letter-spacing: 0.2rem;
+}
+.more-btn {
+  display: flex;
+  background: white;
+  width: 7rem;
+  display: grid;
+  align-items: center;
+  justify-content: center;
+  grid-template-columns: 1fr auto;
+  padding: 0.4rem;
+  border-radius: 25px;
+  cursor: pointer;
+}
+.more-btn p {
+  text-transform: uppercase;
+  color: var(--clr-primary-black);
+  margin-bottom: 0;
+  font-size: 0.8rem;
+  letter-spacing: 0.25rem;
+  margin-left: 0.5rem;
+}
+.more-btn span {
+  background: var(--clr-primary-dark-gray);
+  width: 2rem;
+  height: 2rem;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  transition: var(--transition);
+}
+.more-btn span:hover {
+  background: var(--clr-primary-gray);
 }

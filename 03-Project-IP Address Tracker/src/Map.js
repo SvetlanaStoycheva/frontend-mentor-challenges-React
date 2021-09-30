@@ -1,9 +1,11 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { useGlobalContext } from './context';
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
 
 const MyMap = () => {
   const { currentIPData } = useGlobalContext();
+  // console.log(currentIPData);
+
   const { lat, lng } = currentIPData;
 
   if (lat && lng) {

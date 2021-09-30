@@ -26,7 +26,7 @@ const AppProvider = ({ children }) => {
     try {
       const response = await fetch('https://geolocation-db.com/json/');
       const data = await response.json();
-      // console.log(data.IPv4);
+      console.log(data);
 
       dispatch({ type: 'FETCH_USER_IP', payload: data.IPv4 });
       fetchCurrentIP();
