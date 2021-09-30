@@ -148,8 +148,8 @@ Styles
   color: var(--clr-primary-white);
 }
 .night-theme {
-  background: url(./assets/mobile/bg-image-nighttime.jpg) center/cover fixed
-    no-repeat;
+  background: linear-gradient(rgba(46, 53, 50, 0.6), rgba(0, 0, 0, 0.6)),
+    url(./assets/mobile/bg-image-nighttime.jpg) center/cover fixed no-repeat;
   color: var(--clr-primary-white);
 }
 

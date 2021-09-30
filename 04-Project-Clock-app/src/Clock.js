@@ -4,6 +4,7 @@ import { FaMoon } from 'react-icons/fa';
 import { RiArrowUpSLine } from 'react-icons/ri';
 import { RiArrowDownSLine } from 'react-icons/ri';
 import { useGlobalContext } from './context';
+import Quote from './Quote';
 
 function Clock() {
   const {
@@ -19,37 +20,44 @@ function Clock() {
     week_number,
   } = useGlobalContext();
 
+  const themeHour = Number(datetime.slice(0, 2));
+
   if (isLoading_time === false) {
     return (
-      <div className='clock-container'>
-        <article className='clock-info'>
-          <div className='greeting'>
-            <button className='greetings-btn'>
-              <RiSunFill />
-            </button>
-            <h4>good evening</h4>
-          </div>
-          <div className='current-hour'>
-            <h1>{datetime}</h1>
-            <h4>{abbreviation}</h4>
-          </div>
-          <h3>
-            in {userCity}, {userCountry}
-          </h3>
-        </article>
-        <article className='more-btn'>
-          <p>more</p>
-          <span className='icon'>
-            <RiArrowDownSLine />
-          </span>
-        </article>
-      </div>
+      <main className={`${themeHour > 17 ? 'night-theme' : 'day-theme'}`}>
+        <Quote />
+        <div className='clock-container'>
+          <article className='clock-info'>
+            <div className='greeting'>
+              <button className='greetings-btn'>
+                {themeHour > 17 ? <FaMoon /> : <RiSunFill />}
+              </button>
+              <h4>{themeHour > 17 ? 'good evening' : 'good morning'}</h4>
+            </div>
+            <div className='current-hour'>
+              <h1>{datetime}</h1>
+              <h4>{abbreviation}</h4>
+            </div>
+            <h3>
+              in {userCity}, {userCountry}
+            </h3>
+          </article>
+          <article className='more-btn'>
+            <p>more</p>
+            <span className='icon'>
+              <RiArrowDownSLine />
+            </span>
+          </article>
+        </div>
+      </main>
     );
   } else
     return (
-      <div className='clock-container'>
-        <h1 className='loading'>Loading...</h1>
-      </div>
+      <main>
+        <div className='clock-container'>
+          <h1 className='loading'>Loading...</h1>
+        </div>
+      </main>
     );
 }
 
