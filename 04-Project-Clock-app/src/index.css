@@ -3,7 +3,7 @@
 Fonts
 ===============
 */
-@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap');
 
 /*
 =============== 
@@ -13,13 +13,12 @@ Variables
 
 :root {
   /* primary/main color */
-  --clr-primary-soft-blue: hsl(231, 69%, 60%);
-  --clr-primary-soft-red: hsl(0, 94%, 66%);
-  --clr-primary-grayish-blue: hsl(229, 8%, 60%);
-  --clr-primary-dark-grayish-blue: hsl(231, 5%, 29%);
-  --clr-primary-very-dark-blue: hsl(229, 31%, 21%);
+  --clr-primary-black: hsl(0, 0%, 0%);
+  --clr-primary-dark-gray: hsl(0, 0%, 19%);
+  --clr-primary-white: hsl(0, 0%, 100%);
+  --clr-primary-gray: hsl(225, 2%, 65%);
 
-  --ff-primary: 'Rubik', sans-serif;
+  --ff-primary: 'Inter', sans-serif;
   --transition: all 0.3s linear;
   --spacing: 0.1rem;
   --radius: 0.25rem;
@@ -65,6 +64,54 @@ li {
 a {
   text-decoration: none;
 }
+h1,
+h2,
+h3,
+h4 {
+  letter-spacing: var(--spacing);
+  text-transform: capitalize;
+  line-height: 1.25;
+  margin-bottom: 0.75rem;
+  font-weight: 700;
+}
+h1 {
+  font-size: 12.5rem;
+  line-height: 200px;
+  letter-spacing: 0.5rem;
+}
+h2 {
+  font-size: 3.5rem;
+  line-height: 68px;
+}
+h3 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  line-height: 28px;
+  letter-spacing: 0.48rem;
+}
+h4 {
+  font-size: 1.25rem;
+  line-height: 1.75rem;
+  letter-spacing: 0.4rem;
+  text-transform: uppercase;
+}
+h5 {
+  font-weight: 700;
+  font-size: 1.125rem;
+  line-height: 28px;
+}
+h6 {
+  font-size: 0.938rem;
+  line-height: 1.75rem;
+  letter-spacing: 0.3rem;
+}
+p {
+  margin-bottom: 1.25rem;
+  font-size: 1.125rem;
+  line-height: 28px;
+  letter-spacing: 0.08rem;
+}
 .btn {
   background: var(--clr-primary-soft-blue);
   padding: 1.2rem 1.2rem;
@@ -95,3 +142,89 @@ a {
 Styles
 ===============
 */
+.day-theme {
+  background: linear-gradient(rgba(46, 53, 50, 0.6), rgba(0, 0, 0, 0.2)),
+    url(./assets/mobile/bg-image-daytime.jpg) center/cover fixed no-repeat;
+  color: var(--clr-primary-white);
+}
+.night-theme {
+  background: url(./assets/mobile/bg-image-nighttime.jpg) center/cover fixed
+    no-repeat;
+  color: var(--clr-primary-white);
+}
+
+main {
+  height: 100vh;
+}
+
+@media screen and (min-width: 375px) {
+}
+@media screen and (min-width: 768px) {
+}
+
+/* 
+=============== 
+Quote
+=============== 
+*/
+.quote-container {
+  margin: 0 auto;
+  width: 90vw;
+  padding: 3rem 1.5rem;
+  display: flex;
+  justify-items: space-between;
+  align-items: center;
+}
+.quote-container p {
+  font-size: 0.8rem;
+  line-height: 1.4rem;
+}
+.quote-btn {
+  color: white;
+  opacity: 0.6;
+  font-size: 1.2rem;
+  border: transparent;
+  background: transparent;
+  margin-left: 1rem;
+}
+/* 
+=============== 
+Clock container 
+=============== 
+*/
+.clock-container {
+  margin: 0 auto;
+  margin-top: 4rem;
+  width: 90vw;
+  padding: 3rem 1.5rem;
+}
+.greeting {
+  display: flex;
+
+  align-items: center;
+}
+.greeting h4 {
+  font-weight: 400;
+  margin-bottom: 0.4rem;
+  font-size: 0.9rem;
+  letter-spacing: 0.25rem;
+}
+.greetings-btn {
+  color: white;
+
+  font-size: 1.2rem;
+  border: transparent;
+  background: transparent;
+  margin-right: 1rem;
+}
+.current-hour h1 {
+  font-size: 7rem;
+  margin-top: 0;
+  margin-bottom: 0;
+  line-height: 100px;
+  letter-spacing: 0.2rem;
+}
+.clock-container h3 {
+  font-size: 0.9rem;
+  letter-spacing: 0.2rem;
+}

@@ -1,16 +1,23 @@
-import React, { useState, useContext } from 'react';
+import React, { useContext, useEffect, useReducer } from 'react';
+
+import reducer from './reducer';
+
+const initialState = {};
 
 const AppContext = React.createContext();
 
 const AppProvider = ({ children }) => {
-  return <AppContext.Provider value={{}}>{children}</AppContext.Provider>;
-};
+  const [state, dispatch] = useReducer(reducer, initialState);
 
-//custom hook
+  return (
+    <AppContext.Provider value={{ ...state }}>{children}</AppContext.Provider>
+  );
+};
+// make sure use
 export const useGlobalContext = () => {
   return useContext(AppContext);
 };
 
 export { AppContext, AppProvider };
 // import { useGlobalContext } from './context'
-// const { openSidebar, openModal } = useGlobalContext();
+//  const { handleSearch, query } = useGlobalContext()

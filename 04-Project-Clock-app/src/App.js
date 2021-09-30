@@ -1,7 +1,14 @@
 import React from 'react';
+import Quote from './Quote';
+import Clock from './Clock';
 
 function App() {
-  return <h2>hello</h2>;
+  return (
+    <main className='day-theme'>
+      <Quote />
+      <Clock />
+    </main>
+  );
 }
 
 export default App;
