@@ -10,7 +10,7 @@ const SearchForm = () => {
       <input
         type='text'
         className='ip-input'
-        placeholder='Search for any IP address domain e.g. "spacex.com"'
+        placeholder='Search for any IP or domain e.g. "spacex.com"'
         value={query}
         onChange={(e) => handleSearch(e.target.value)}
         // onChange={(e) => setQuery(e.target.value)}

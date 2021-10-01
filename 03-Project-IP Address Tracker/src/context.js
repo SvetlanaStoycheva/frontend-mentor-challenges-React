@@ -5,7 +5,8 @@ const apiKey = process.env.REACT_APP_ACCESS_KEY;
 // 192.212.174.101
 
 const initialState = {
-  isLoading: true,
+  isLoadingUserIP: true,
+  isLoadingResult: true,
   currentIPData: {},
   userIP: '',
   query: '',
@@ -21,7 +22,7 @@ const AppProvider = ({ children }) => {
     dispatch({ type: 'HANDLE_SEARCH', payload: query });
   };
   const fetchUserIP = async () => {
-    dispatch({ type: 'SET_LOADING' });
+    dispatch({ type: 'SET_LOADING_USER_IP' });
 
     try {
       const response = await fetch('https://geolocation-db.com/json/');
@@ -40,7 +41,7 @@ const AppProvider = ({ children }) => {
   }, []);
 
   const fetchCurrentIP = async () => {
-    dispatch({ type: 'SET_LOADING' });
+    dispatch({ type: 'SET_LOADING_RESULT' });
     let response;
     if (!state.query && state.userIP) {
       response = await fetch(

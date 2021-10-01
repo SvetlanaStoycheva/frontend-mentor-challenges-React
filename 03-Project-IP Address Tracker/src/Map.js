@@ -3,12 +3,11 @@ import { useGlobalContext } from './context';
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
 
 const MyMap = () => {
-  const { currentIPData } = useGlobalContext();
-  // console.log(currentIPData);
+  const { currentIPData, isLoadingResult } = useGlobalContext();
 
-  const { lat, lng } = currentIPData;
+  if (isLoadingResult === false) {
+    const { lat, lng } = currentIPData;
 
-  if (lat && lng) {
     return (
       <MapContainer center={[lat, lng]} zoom={13} scrollWheelZoom={false}>
         <TileLayer
@@ -16,13 +15,26 @@ const MyMap = () => {
           url='https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png'
         />
         <Marker position={[lat, lng]}>
-          <Popup>
+          {/* <Popup>
             A pretty CSS3 popup. <br /> Easily customizable.
-          </Popup>
+          </Popup> */}
         </Marker>
       </MapContainer>
     );
-  } else return [];
+  } else
+    return (
+      <>
+        <article className='spinner'>
+          <div class='lds-ring'>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+          </div>
+          <h2>Loading...</h2>
+        </article>
+      </>
+    );
 };
 
 export default MyMap;

@@ -14,6 +14,7 @@ Variables
   /* primary/main color */
   --clr-primary-dark-gray: hsl(0, 0%, 59%);
   --clr-primary-very-dark-gray: hsl(0, 0%, 17%);
+  --clr-primary-spinner: hsl(226, 35%, 43%);
 
   --ff-primary: 'Rubik', sans-serif;
   --transition: all 0.3s linear;
@@ -253,5 +254,62 @@ Result container
     margin-bottom: 0.5rem;
     font-weight: 700;
     font-size: 1rem;
+  }
+}
+
+/*
+=============== 
+Loading spinner
+===============
+*/
+.spinner {
+  height: 30vh;
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  row-gap: 3rem;
+  align-items: center;
+  justify-content: center;
+  margin-top: 5rem;
+}
+.spinner h2 {
+  color: var(--clr-primary-spinner);
+  font-size: 1.4rem;
+  letter-spacing: 0.08rem;
+  margin-top: 3rem;
+}
+
+lds-ring {
+  display: block;
+  position: relative;
+  width: 100px;
+  height: 100px;
+}
+.lds-ring div {
+  box-sizing: border-box;
+  display: block;
+  position: absolute;
+  width: 64px;
+  height: 64px;
+  margin: 8px;
+  border: 8px solid var(--clr-primary-spinner);
+  border-radius: 50%;
+  animation: lds-ring 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+  border-color: var(--clr-primary-spinner) transparent transparent;
+}
+.lds-ring div:nth-child(1) {
+  animation-delay: -0.45s;
+}
+.lds-ring div:nth-child(2) {
+  animation-delay: -0.3s;
+}
+.lds-ring div:nth-child(3) {
+  animation-delay: -0.15s;
+}
+@keyframes lds-ring {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
   }
 }

@@ -7,7 +7,7 @@ const Alert = () => {
   useEffect(() => {
     const timeout = setTimeout(() => {
       closeAlarm();
-    }, 3000);
+    }, 4000);
     return () => clearTimeout(timeout);
     //eslint-disable-next-line
   }, [query]);
