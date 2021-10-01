@@ -18,6 +18,7 @@ function Clock() {
     day_of_year,
     timezone,
     week_number,
+    isLoading_quote,
   } = useGlobalContext();
 
   const themeHour = Number(datetime.slice(0, 2));
@@ -32,7 +33,13 @@ function Clock() {
               <button className='greetings-btn'>
                 {themeHour > 17 ? <FaMoon /> : <RiSunFill />}
               </button>
-              <h4>{themeHour > 17 ? 'good evening' : 'good morning'}</h4>
+              <h4>
+                {themeHour > 12 && themeHour < 17
+                  ? 'good afternoon'
+                  : themeHour < 12
+                  ? 'good morning'
+                  : 'good evening'}
+              </h4>
             </div>
             <div className='current-hour'>
               <h1>{datetime}</h1>

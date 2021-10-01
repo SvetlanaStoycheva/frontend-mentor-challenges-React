@@ -167,10 +167,12 @@ main {
 Quote
 =============== 
 */
-.quote-container {
+.quote {
   margin: 0 auto;
   width: 90vw;
   padding: 3rem 1.5rem;
+}
+.quote-container {
   display: flex;
   justify-items: space-between;
   align-items: center;
@@ -178,6 +180,11 @@ Quote
 .quote-container p {
   font-size: 0.8rem;
   line-height: 1.4rem;
+}
+.author {
+  font-size: 0.8rem;
+  line-height: 1.4rem;
+  font-weight: 700;
 }
 .quote-btn {
   color: white;

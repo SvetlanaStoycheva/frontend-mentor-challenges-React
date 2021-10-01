@@ -5,6 +5,10 @@ const reducer = (state, action) => {
   if (action.type === 'SET_LOADING_TIME') {
     return { ...state, isLoading_time: true };
   }
+  if (action.type === 'SET_LOADING_QUOTE') {
+    return { ...state, isLoading_quote: true };
+  }
+
   if (action.type === 'FETCH_USER_IP') {
     const [ip, city, country] = action.payload;
     return {
@@ -40,7 +44,10 @@ const reducer = (state, action) => {
       week_number,
     };
   }
-
+  if (action.type === 'FETCH_QUOTE') {
+    const [content, author] = action.payload;
+    return { ...state, quote: content, author, isLoading_quote: false };
+  }
   throw new Error(`no matching "${action.type}" action type`);
 };
 export default reducer;

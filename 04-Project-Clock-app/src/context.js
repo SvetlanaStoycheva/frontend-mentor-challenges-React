@@ -8,12 +8,15 @@ const initialState = {
   userCountry: '',
   isLoading: true,
   isLoading_time: true,
+  isLoading_quote: true,
   abbreviation: '',
   datetime: '',
   day_of_week: '',
   day_of_year: '',
   timezone: '',
   week_number: '',
+  quote: '',
+  author: '',
 };
 
 const AppContext = React.createContext();
@@ -32,7 +35,7 @@ const AppProvider = ({ children }) => {
 
       dispatch({ type: 'FETCH_USER_IP', payload: [ip, city, country] });
 
-      fetchTime();
+      fetchQuote();
     } catch (error) {
       console.log(error);
     }
@@ -49,7 +52,7 @@ const AppProvider = ({ children }) => {
         `http://worldtimeapi.org/api/ip/${state.userIP}`
       );
       const data = await response.json();
-      console.log(data);
+      // console.log(data);
       const {
         datetime,
         abbreviation,
@@ -74,6 +77,25 @@ const AppProvider = ({ children }) => {
       console.log(error);
     }
   };
+
+  const fetchQuote = async () => {
+    dispatch({ type: 'SET_LOADING_QUOTE' });
+    try {
+      const response = await fetch('https://api.quotable.io/random');
+      const data = await response.json();
+      console.log(data);
+      const { content, author } = data;
+      dispatch({ type: 'FETCH_QUOTE', payload: [content, author] });
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  useEffect(() => {
+    if (state.isLoading_quote === false) {
+      fetchTime();
+    }
+  }, [state.isLoading_quote]);
 
   return (
     <AppContext.Provider value={{ ...state }}>{children}</AppContext.Provider>
