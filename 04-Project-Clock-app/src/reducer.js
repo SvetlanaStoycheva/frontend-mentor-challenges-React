@@ -48,6 +48,13 @@ const reducer = (state, action) => {
     const [content, author] = action.payload;
     return { ...state, quote: content, author, isLoading_quote: false };
   }
+  if (action.type === 'TOGGLE_SIDEBAR') {
+    if (state.isSidebarOpen) {
+      return { ...state, isSidebarOpen: false };
+    } else {
+      return { ...state, isSidebarOpen: true };
+    }
+  }
   throw new Error(`no matching "${action.type}" action type`);
 };
 export default reducer;

@@ -20,6 +20,7 @@ function Clock() {
     week_number,
     isLoading_quote,
     toggleSidebar,
+    isSidebarOpen,
   } = useGlobalContext();
 
   const themeHour = Number(datetime.slice(0, 2));
@@ -32,10 +33,10 @@ function Clock() {
           <article className='clock-info'>
             <div className='greeting'>
               <button className='greetings-btn'>
-                {themeHour > 17 ? <FaMoon /> : <RiSunFill />}
+                {themeHour >= 18 ? <FaMoon /> : <RiSunFill />}
               </button>
               <h4>
-                {themeHour > 12 && themeHour < 17
+                {themeHour > 12 && themeHour < 18
                   ? 'good afternoon'
                   : themeHour < 12
                   ? 'good morning'
@@ -57,6 +58,37 @@ function Clock() {
             </span>
           </button>
         </div>
+        {/* SIDEBAR */}
+        {isSidebarOpen && (
+          <div
+            className={`${
+              themeHour > 17
+                ? 'sidebar-night-theme sidebar'
+                : 'sidebar-day-theme sidebar'
+            }`}
+          >
+            <article className='first-info'>
+              <div className='sidebar-single-info'>
+                <h4>current timezone</h4>
+                <h2>{timezone}</h2>
+              </div>
+              <div className='sidebar-single-info'>
+                <h4>day of the year</h4>
+                <h2>{day_of_year}</h2>
+              </div>
+            </article>
+            <article className='second-info'>
+              <div className='sidebar-single-info'>
+                <h4>day of the week</h4>
+                <h2>{day_of_week}</h2>
+              </div>
+              <div className='sidebar-single-info'>
+                <h4>week number</h4>
+                <h2>{week_number}</h2>
+              </div>
+            </article>
+          </div>
+        )}
       </main>
     );
   } else

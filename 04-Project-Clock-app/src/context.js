@@ -17,6 +17,7 @@ const initialState = {
   week_number: '',
   quote: '',
   author: '',
+  isSidebarOpen: false,
 };
 
 const AppContext = React.createContext();
@@ -97,7 +98,9 @@ const AppProvider = ({ children }) => {
     }
   }, [state.isLoading_quote]);
 
-  const toggleSidebar = () => {};
+  const toggleSidebar = () => {
+    dispatch({ type: 'TOGGLE_SIDEBAR' });
+  };
 
   return (
     <AppContext.Provider value={{ ...state, toggleSidebar }}>

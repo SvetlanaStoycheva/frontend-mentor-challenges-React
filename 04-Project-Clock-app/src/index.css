@@ -327,3 +327,74 @@ Clock container
     justify-content: space-between;
   }
 }
+
+/* 
+=============== 
+Sidebar 
+=============== 
+*/
+.sidebar {
+  width: 100vw;
+  height: 50vh;
+  padding: 2.5rem 2rem;
+}
+.sidebar-night-theme {
+  background: var(--clr-primary-black);
+  opacity: 80%;
+  color: var(--clr-primary-white);
+}
+.sidebar-day-theme {
+  background: var(--clr-primary-white);
+  opacity: 80%;
+  color: var(--clr-primary-black);
+}
+.sidebar-single-info {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.sidebar-single-info h4 {
+  font-weight: 400;
+  font-size: 0.7rem;
+  letter-spacing: 0.15rem;
+}
+.sidebar-single-info h2 {
+  font-size: 1.2rem;
+  line-height: 34px;
+}
+@media screen and (min-width: 375px) {
+  .sidebar {
+    height: 45vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    place-items: center;
+    column-gap: 2rem;
+  }
+  .sidebar-single-info {
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    align-items: left;
+    margin-bottom: 1rem;
+  }
+  .sidebar-single-info h4 {
+    letter-spacing: 0.15rem;
+    margin-bottom: 0;
+  }
+  .sidebar-single-info h2 {
+    font-size: 1.4rem;
+    line-height: 24px;
+    letter-spacing: 0.15rem;
+  }
+}
+@media screen and (min-width: 768px) {
+  .sidebar-single-info {
+    align-items: left;
+    margin-bottom: 1rem;
+  }
+
+  .sidebar-single-info h2 {
+    font-size: 1.8rem;
+    line-height: 30px;
+    letter-spacing: 0.25rem;
+  }
+}
