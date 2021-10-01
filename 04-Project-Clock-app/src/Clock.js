@@ -19,6 +19,7 @@ function Clock() {
     timezone,
     week_number,
     isLoading_quote,
+    toggleSidebar,
   } = useGlobalContext();
 
   const themeHour = Number(datetime.slice(0, 2));
@@ -26,7 +27,7 @@ function Clock() {
   if (isLoading_time === false) {
     return (
       <main className={`${themeHour > 17 ? 'night-theme' : 'day-theme'}`}>
-        <Quote />
+        {!isLoading_time && <Quote />}
         <div className='clock-container'>
           <article className='clock-info'>
             <div className='greeting'>
@@ -49,12 +50,12 @@ function Clock() {
               in {userCity}, {userCountry}
             </h3>
           </article>
-          <article className='more-btn'>
+          <button className='more-btn' onClick={toggleSidebar}>
             <p>more</p>
             <span className='icon'>
               <RiArrowDownSLine />
             </span>
-          </article>
+          </button>
         </div>
       </main>
     );

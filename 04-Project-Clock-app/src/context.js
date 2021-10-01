@@ -92,13 +92,17 @@ const AppProvider = ({ children }) => {
   };
 
   useEffect(() => {
-    if (state.isLoading_quote === false) {
+    if (!state.isLoading_quote) {
       fetchTime();
     }
   }, [state.isLoading_quote]);
 
+  const toggleSidebar = () => {};
+
   return (
-    <AppContext.Provider value={{ ...state }}>{children}</AppContext.Provider>
+    <AppContext.Provider value={{ ...state, toggleSidebar }}>
+      {children}
+    </AppContext.Provider>
   );
 };
 // make sure use

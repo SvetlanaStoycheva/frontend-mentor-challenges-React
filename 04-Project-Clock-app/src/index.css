@@ -155,11 +155,34 @@ Styles
 
 main {
   height: 100vh;
+  display: grid;
+  align-items: center;
+  justify-content: center;
 }
 
 @media screen and (min-width: 375px) {
+  .day-theme {
+    background: linear-gradient(rgba(46, 53, 50, 0.6), rgba(0, 0, 0, 0.2)),
+      url(./assets/tablet/bg-image-daytime.jpg) center/cover fixed no-repeat;
+    color: var(--clr-primary-white);
+  }
+  .night-theme {
+    background: linear-gradient(rgba(46, 53, 50, 0.6), rgba(0, 0, 0, 0.6)),
+      url(./assets/tablet/bg-image-nighttime.jpg) center/cover fixed no-repeat;
+    color: var(--clr-primary-white);
+  }
 }
 @media screen and (min-width: 768px) {
+  .day-theme {
+    background: linear-gradient(rgba(46, 53, 50, 0.6), rgba(0, 0, 0, 0.2)),
+      url(./assets/desktop/bg-image-daytime.jpg) center/cover fixed no-repeat;
+    color: var(--clr-primary-white);
+  }
+  .night-theme {
+    background: linear-gradient(rgba(46, 53, 50, 0.6), rgba(0, 0, 0, 0.6)),
+      url(./assets/desktop/bg-image-nighttime.jpg) center/cover fixed no-repeat;
+    color: var(--clr-primary-white);
+  }
 }
 
 /* 
@@ -199,6 +222,13 @@ Quote
 .quote-btn:hover {
   opacity: 1;
 }
+
+@media screen and (min-width: 768px) {
+  .quote {
+    margin-left: 0.5rem;
+    width: 50vw;
+  }
+}
 /* 
 =============== 
 Clock container 
@@ -212,7 +242,6 @@ Clock container
 }
 .greeting {
   display: flex;
-
   align-items: center;
 }
 .greeting h4 {
@@ -223,7 +252,6 @@ Clock container
 }
 .greetings-btn {
   color: white;
-
   font-size: 1.2rem;
   border: transparent;
   background: transparent;
@@ -279,6 +307,7 @@ Clock container
 }
 .more-btn span {
   background: var(--clr-primary-dark-gray);
+  color: var(--clr-primary-white);
   width: 2rem;
   height: 2rem;
   display: grid;
@@ -288,4 +317,13 @@ Clock container
 }
 .more-btn span:hover {
   background: var(--clr-primary-gray);
+}
+@media screen and (min-width: 768px) {
+  .clock-container {
+    /* margin-left: 5.5rem; */
+    width: 80vw;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
 }

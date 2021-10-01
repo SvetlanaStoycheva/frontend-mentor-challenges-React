@@ -18,7 +18,23 @@ function Quote() {
         <p className='author'>{author}</p>
       </div>
     );
-  } else return [];
+  } else
+    return (
+      <div className='quote'>
+        <div className='quote-container'>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt
+            debitis nemo consequuntur aperiam nihil temporibus provident
+            veritatis, quas maxime reprehenderit.
+          </p>
+
+          <button className='quote-btn'>
+            <FiRefreshCw />
+          </button>
+        </div>
+        <p className='author'>Author</p>
+      </div>
+    );
 }
 
 export default Quote;
