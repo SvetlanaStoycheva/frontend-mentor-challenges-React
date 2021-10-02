@@ -3,15 +3,17 @@ import { useGlobalContext } from './context';
 import { FiRefreshCw } from 'react-icons/fi';
 
 function Quote() {
-  const { quote, author, isLoading_quote, isLoading_time } = useGlobalContext;
+  const { quote, author, isLoading_quote, fetchQuote } = useGlobalContext;
 
-  if (isLoading_quote === false) {
+  console.log(quote);
+
+  if (!isLoading_quote) {
     return (
       <div className='quote'>
         <div className='quote-container'>
           <p>{quote}</p>
 
-          <button className='quote-btn'>
+          <button className='quote-btn' onClick={fetchQuote}>
             <FiRefreshCw />
           </button>
         </div>
@@ -23,16 +25,15 @@ function Quote() {
       <div className='quote'>
         <div className='quote-container'>
           <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt
-            debitis nemo consequuntur aperiam nihil temporibus provident
-            veritatis, quas maxime reprehenderit.
+            " Failure is an option here. If things are not failing, you're not
+            innovating enough"
           </p>
 
           <button className='quote-btn'>
             <FiRefreshCw />
           </button>
         </div>
-        <p className='author'>Author</p>
+        <p className='author'>-Elon Musk</p>
       </div>
     );
 }

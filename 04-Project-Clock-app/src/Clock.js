@@ -4,7 +4,9 @@ import { FaMoon } from 'react-icons/fa';
 import { RiArrowUpSLine } from 'react-icons/ri';
 import { RiArrowDownSLine } from 'react-icons/ri';
 import { useGlobalContext } from './context';
-import Quote from './Quote';
+// import Quote from './Quote';
+
+import { FiRefreshCw } from 'react-icons/fi';
 
 function Clock() {
   const {
@@ -20,14 +22,30 @@ function Clock() {
     isLoading_quote,
     toggleSidebar,
     isSidebarOpen,
+    quote,
+    fetchQuote,
+    author,
   } = useGlobalContext();
 
   const themeHour = Number(datetime.slice(0, 2));
 
-  if (isLoading_time === false) {
+  if (!isLoading_time && !isLoading_quote) {
     return (
       <main className={`${themeHour > 17 ? 'night-theme' : 'day-theme'}`}>
-        {!isLoading_time && !isSidebarOpen && <Quote />}
+        {/* Quote */}
+        {!isSidebarOpen && (
+          <div className='quote'>
+            <div className='quote-container'>
+              <p>{quote}</p>
+
+              <button className='quote-btn' onClick={fetchQuote}>
+                <FiRefreshCw />
+              </button>
+            </div>
+            <p className='author'>{author}</p>
+          </div>
+        )}
+        {/* Clock */}
         <div
           className={`${
             isSidebarOpen
@@ -63,7 +81,7 @@ function Clock() {
             </span>
           </button>
         </div>
-        {/* SIDEBAR */}
+        {/* Sidebar */}
         {isSidebarOpen && (
           <div
             className={`${
@@ -100,9 +118,9 @@ function Clock() {
   } else
     return (
       <main>
-        <div className='clock-container'>
+        <main className='clock-container'>
           <h1 className='loading'>Loading...</h1>
-        </div>
+        </main>
       </main>
     );
 }

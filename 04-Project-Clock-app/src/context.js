@@ -36,13 +36,14 @@ const AppProvider = ({ children }) => {
 
       dispatch({ type: 'FETCH_USER_IP', payload: [ip, city, country] });
 
-      fetchQuote();
+      fetchTime();
     } catch (error) {
       console.log(error);
     }
   };
   useEffect(() => {
     fetchUserIP();
+    fetchQuote();
     //eslint-disable-next-line
   }, []);
 
@@ -92,18 +93,12 @@ const AppProvider = ({ children }) => {
     }
   };
 
-  useEffect(() => {
-    if (!state.isLoading_quote) {
-      fetchTime();
-    }
-  }, [state.isLoading_quote]);
-
   const toggleSidebar = () => {
     dispatch({ type: 'TOGGLE_SIDEBAR' });
   };
 
   return (
-    <AppContext.Provider value={{ ...state, toggleSidebar }}>
+    <AppContext.Provider value={{ ...state, toggleSidebar, fetchQuote }}>
       {children}
     </AppContext.Provider>
   );
