@@ -8,7 +8,6 @@ import Quote from './Quote';
 
 function Clock() {
   const {
-    userIP,
     userCity,
     userCountry,
     isLoading_time,
@@ -28,8 +27,14 @@ function Clock() {
   if (isLoading_time === false) {
     return (
       <main className={`${themeHour > 17 ? 'night-theme' : 'day-theme'}`}>
-        {!isLoading_time && <Quote />}
-        <div className='clock-container'>
+        {!isLoading_time && !isSidebarOpen && <Quote />}
+        <div
+          className={`${
+            isSidebarOpen
+              ? 'clock-container pushed-clock-container'
+              : 'clock-container'
+          }`}
+        >
           <article className='clock-info'>
             <div className='greeting'>
               <button className='greetings-btn'>
@@ -52,9 +57,9 @@ function Clock() {
             </h3>
           </article>
           <button className='more-btn' onClick={toggleSidebar}>
-            <p>more</p>
+            <p>{isSidebarOpen ? 'less' : 'more'}</p>
             <span className='icon'>
-              <RiArrowDownSLine />
+              {isSidebarOpen ? <RiArrowUpSLine /> : <RiArrowDownSLine />}
             </span>
           </button>
         </div>
@@ -66,6 +71,7 @@ function Clock() {
                 ? 'sidebar-night-theme sidebar'
                 : 'sidebar-day-theme sidebar'
             }`}
+            // className={`${isSidebarOpen ? 'show-sidebar sidebar' : 'sidebar'}`}
           >
             <article className='first-info'>
               <div className='sidebar-single-info'>

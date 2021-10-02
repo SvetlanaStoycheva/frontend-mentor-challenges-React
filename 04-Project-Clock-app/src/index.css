@@ -240,6 +240,9 @@ Clock container
   width: 90vw;
   padding: 3rem 1.5rem;
 }
+.pushed-clock-container {
+  margin-top: -17rem;
+}
 .greeting {
   display: flex;
   align-items: center;
@@ -286,6 +289,7 @@ Clock container
   letter-spacing: 0.2rem;
 }
 .more-btn {
+  font-size: 1.2rem;
   display: flex;
   background: white;
   width: 7rem;
@@ -334,18 +338,29 @@ Sidebar
 =============== 
 */
 .sidebar {
+  position: fixed;
   width: 100vw;
   height: 50vh;
   padding: 2.5rem 2rem;
+  bottom: 0;
+  left: 0;
+  transition: var(--transition);
+  transform: translate(0);
+  z-index: 2;
 }
+/* .show-sidebar {
+  transform: translate(0);
+  z-index: 5;
+} */
+
 .sidebar-night-theme {
   background: var(--clr-primary-black);
-  opacity: 80%;
+  opacity: 60%;
   color: var(--clr-primary-white);
 }
 .sidebar-day-theme {
   background: var(--clr-primary-white);
-  opacity: 80%;
+  opacity: 60%;
   color: var(--clr-primary-black);
 }
 .sidebar-single-info {

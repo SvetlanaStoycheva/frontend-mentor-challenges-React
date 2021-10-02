@@ -67,7 +67,7 @@
 - Using external APIs to set the data based on the visitor's location and generate random programming quotes. User can:
 
   - View the current time and location information based on their IP address
-  - View additional information about the date and time in the expanded state
+  - View additional information about the date and time in the expanded state (sidebar)
   - Be shown the correct greeting and background image based on the time of day they're visiting the site
   - Generate random programming quotes by clicking the refresh icon near the quote
 
