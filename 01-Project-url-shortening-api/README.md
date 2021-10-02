@@ -10,7 +10,7 @@
   - Form error message and 'Copied' class for copy-btn are temporary. Using setTimeout.
 
 <p align-items: center>
-    <img src='./readme-images/Screenshot-url-shortening-01.png' width='250'>
+    <img src='../readme-images/Screenshot-url-shortening-01.png' width='250'>
 </p>
 <br/>
 
