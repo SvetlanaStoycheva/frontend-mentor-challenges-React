@@ -81,12 +81,12 @@
   - http://worldtimeapi.org/ to set the time based on the visitor's IP adress as well as additional data shown in the expanded state.
   - https://api.quotable.io/random to get a random quote
 
-    <p align-items: center>
-      <img src='readme-images/Screenshot-Clock-app-01.png' width='250'>
+  <p align-items: center>
+    <img src='readme-images/Screenshot-Clock-app-01.png' width='250'>
   </p>
   <br/>
   <p align-items: center>
-      <img src='readme-images/Screenshot-Clock-app-04.png' width='250'>
+    <img src='readme-images/Screenshot-Clock-app-04.png' width='250'>
   </p>
   <br/>
 

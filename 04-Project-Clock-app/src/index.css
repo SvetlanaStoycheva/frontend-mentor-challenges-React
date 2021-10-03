@@ -142,6 +142,13 @@ p {
 Styles
 ===============
 */
+main {
+  height: 100vh;
+  display: grid;
+  align-items: center;
+  justify-content: center;
+}
+
 .day-theme {
   background: linear-gradient(rgba(46, 53, 50, 0.6), rgba(0, 0, 0, 0.2)),
     url(./assets/mobile/bg-image-daytime.jpg) center/cover fixed no-repeat;
@@ -151,13 +158,6 @@ Styles
   background: linear-gradient(rgba(46, 53, 50, 0.6), rgba(0, 0, 0, 0.6)),
     url(./assets/mobile/bg-image-nighttime.jpg) center/cover fixed no-repeat;
   color: var(--clr-primary-white);
-}
-
-main {
-  height: 100vh;
-  display: grid;
-  align-items: center;
-  justify-content: center;
 }
 
 @media screen and (min-width: 375px) {
@@ -345,10 +345,16 @@ Sidebar
   bottom: 0;
   left: 0;
   transition: var(--transition);
-  transform: translate(0);
-  z-index: 2;
+  /* transform: translate(0); */
+  z-index: 5;
 }
 /* .show-sidebar {
+  position: fixed;
+  width: 100vw;
+  height: 50vh;
+  padding: 2.5rem 2rem;
+  bottom: 0;
+  left: 0;
   transform: translate(0);
   z-index: 5;
 } */
