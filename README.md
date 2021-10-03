@@ -86,7 +86,7 @@
   </p>
   <br/>
   <p align-items: center>
-      <img src='readme-images/Screenshot-Clock-app-02.png' width='250'>
+      <img src='readme-images/Screenshot-Clock-app-04.png' width='250'>
   </p>
   <br/>
 

@@ -15,21 +15,21 @@
 <br/>
 
 <p align-items: center>
-    <img src='readme-images/Screenshot-url-shortening-02.png' width='250'>
+    <img src='../readme-images/Screenshot-url-shortening-02.png' width='250'>
 </p>
 <br/>
 
 <p align-items: center>
-    <img src='readme-images/Screenshot-url-shortening-03.png' width='250'>
+    <img src='../readme-images/Screenshot-url-shortening-03.png' width='250'>
 </p>
 <br/>
 
 <p align-items: center>
-    <img src='readme-images/Screenshot-url-shortening-04.png' width='250'>
+    <img src='../readme-images/Screenshot-url-shortening-04.png' width='250'>
 </p>
 <br/>
 
 <p align-items: center>
-    <img src='readme-images/Screenshot-url-shortening-05.png' width='250'>
+    <img src='../readme-images/Screenshot-url-shortening-05.png' width='250'>
 </p>
 <br/>

@@ -9,10 +9,10 @@
   - map showing bug: https://stackoverflow.com/questions/67552020/how-to-fix-error-failed-to-compile-node-modules-react-leaflet-core-esm-pat
 
 <p align-items: center>
-    <img src='readme-images/Screenshot-api-tracker-01.png' width='250'>
+    <img src='../readme-images/Screenshot-api-tracker-01.png' width='250'>
 </p>
 <br/>
 <p align-items: center>
-    <img src='readme-images/Screenshot-api-tracker-02.png' width='250'>
+    <img src='../readme-images/Screenshot-api-tracker-02.png' width='250'>
 </p>
 <br/>

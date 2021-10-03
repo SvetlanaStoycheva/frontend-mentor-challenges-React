@@ -15,10 +15,18 @@
   - https://api.quotable.io/random to get a random quote
 
     <p align-items: center>
-      <img src='readme-images/Screenshot-Clock-app-01.png' width='250'>
+      <img src='../readme-images/Screenshot-Clock-app-01.png' width='250'>
   </p>
   <br/>
   <p align-items: center>
-      <img src='readme-images/Screenshot-Clock-app-02.png' width='250'>
+      <img src='../readme-images/Screenshot-Clock-app-02.png' width='250'>
+  </p>
+  <br/>
+  <p align-items: center>
+      <img src='../readme-images/Screenshot-Clock-app-03.png' width='250'>
+  </p>
+  <br/>
+  <p align-items: center>
+      <img src='../readme-images/Screenshot-Clock-app-04.png' width='250'>
   </p>
   <br/>

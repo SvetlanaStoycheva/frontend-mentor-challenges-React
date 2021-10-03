@@ -214,7 +214,10 @@ Result container
   background: white;
   z-index: 2;
   border-radius: 16px;
-  padding: 1.5rem 0;
+  padding: 1.5rem 1.5rem;
+}
+.result-container div {
+  margin: 0 1.5rem;
 }
 .result-container h3 {
   color: var(--clr-primary-dark-gray);
