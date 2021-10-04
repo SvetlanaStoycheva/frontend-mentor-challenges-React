@@ -79,7 +79,7 @@ function Clock() {
             </button>
           </div>
           {/* Sidebar */}
-          {isSidebarOpen && <Sidebar />}
+          <Sidebar />
         </main>
       </>
     );

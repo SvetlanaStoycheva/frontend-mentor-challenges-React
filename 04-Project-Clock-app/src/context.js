@@ -51,7 +51,7 @@ const AppProvider = ({ children }) => {
     dispatch({ type: 'SET_LOADING_TIME' });
     try {
       const response = await fetch(
-        `http://worldtimeapi.org/api/ip/${state.userIP}`
+        `https://worldtimeapi.org/api/ip/${state.userIP}`
       );
       const data = await response.json();
       // console.log(data);

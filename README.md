@@ -67,7 +67,7 @@
 
 4. Clock App
 
-- [see project]()
+- [see project](https://sweta-fm-clock-app.netlify.app)
 - Using external APIs to set the data based on the visitor's location and generate random programming quotes. User can:
 
   - View the current time and location information based on their IP address

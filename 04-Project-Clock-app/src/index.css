@@ -345,8 +345,8 @@ Sidebar
   bottom: 0;
   left: 0;
   transition: var(--transition);
-  /* transform: translate(0); */
-  z-index: 5;
+  /* transform: translate(-100%); */
+  /* z-index: 5; */
 }
 /* .show-sidebar {
   position: fixed;
@@ -383,7 +383,7 @@ Sidebar
   font-size: 1.2rem;
   line-height: 34px;
 }
-@media screen and (min-width: 375px) {
+@media screen and (min-width: 575px) {
   .sidebar {
     height: 45vh;
     display: grid;

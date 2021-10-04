@@ -17,7 +17,7 @@ function Sidebar() {
     return (
       <div
         className={`${
-          themeHour > 17 && isSidebarOpen
+          themeHour > 17
             ? 'sidebar-night-theme sidebar '
             : 'sidebar-day-theme sidebar '
         }`}
