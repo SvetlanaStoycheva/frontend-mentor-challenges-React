@@ -27,19 +27,7 @@ const cart_reducer = (state, action) => {
       currentList: newCurrentList,
     };
   }
-  if (action.type === 'SHOW_ALL') {
-    return { ...state };
-  }
-  if (action.type === 'SHOW_ACTIVE') {
-    let active = [...state.currentList];
-    active = active.filter((item) => item.active === true);
-    return { ...state, activeTasks: active };
-  }
-  if (action.type === 'SHOW_COMPLETED') {
-    let completed = [...state.currentList];
-    completed = completed.filter((item) => item.active === false);
-    return { ...state, completedTasks: completed };
-  }
+
   if (action.type === 'CLEAR_COMPLETED') {
     const newCurrentList = state.currentList.filter(
       (item) => item.active === true

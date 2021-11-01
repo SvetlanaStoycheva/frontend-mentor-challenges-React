@@ -8,15 +8,23 @@ const List = () => {
     currentList,
     deleteItem,
     setTaskComleted,
-    showAll,
-    showActive,
-    showCompleted,
     clearCompleted,
   } = useListContext();
 
+  const [list, setList] = useState(currentList);
+  const showActive = () => {
+    setList(currentList.filter((item) => item.active));
+  };
+  const showCompleted = () => {
+    setList(currentList.filter((item) => !item.active));
+  };
+  const showAll = () => {
+    setList(currentList);
+  };
+
   return (
     <section className='section-list'>
-      {currentList.map((item) => {
+      {list.map((item) => {
         const { id, task, active } = item;
         return (
           <div className=' single-task-container' key={id}>
