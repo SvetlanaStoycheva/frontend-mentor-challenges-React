@@ -18,7 +18,7 @@ const List = () => {
   const showCompleted = () => {
     setList(currentList.filter((item) => !item.active));
   };
-  const showAll = () => {
+  const showAll = (e) => {
     setList(currentList);
   };
   useEffect(() => {

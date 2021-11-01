@@ -1,22 +1,32 @@
-import React from 'react';
-import { AiOutlineCheckCircle } from 'react-icons/ai';
+import React, { useState } from 'react';
+import { AiOutlinePlus } from 'react-icons/ai';
 import { useListContext } from './context';
 
 const Form = () => {
-  const { handleAddTask, taskInput } = useListContext();
+  const { handleAddTask } = useListContext();
+  const [task, setTask] = useState('');
   return (
     <div className='form-container'>
       <form onSubmit={(e) => e.preventDefault()}>
-        <button className='form-btn'>
-          <AiOutlineCheckCircle />
-        </button>
         <input
           type='text'
           className='form-input'
           placeholder='Create a new todo...'
-          value={taskInput}
-          onClick={(e) => handleAddTask(e.target.value)}
+          value={task}
+          onChange={(e) => setTask(e.target.value)}
         />
+        <button
+          className='form-btn'
+          type='submit'
+          onClick={() => {
+            handleAddTask(task);
+          }}
+        >
+          <span className='submit-icon'>
+            <AiOutlinePlus />
+          </span>{' '}
+          <span className='submit-text'> Add Task</span>
+        </button>
       </form>
     </div>
   );

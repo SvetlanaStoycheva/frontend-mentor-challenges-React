@@ -22,8 +22,8 @@ export const Provider = ({ children }) => {
   const handleAddTask = (taskInput) => {
     if (taskInput) {
       dispatch({ type: 'ADD_TASK', payload: taskInput });
+      taskInput = '';
     }
-    taskInput = '';
   };
 
   const deleteItem = (id) => {

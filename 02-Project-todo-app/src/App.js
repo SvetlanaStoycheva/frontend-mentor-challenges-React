@@ -36,7 +36,7 @@ function App() {
       <div className='img-container'>
         <img
           src={`${theme === 'light' ? bcgLightImage : bcgDarkImage}`}
-          alt=''
+          alt='background'
           className='bcg-image'
         />
       </div>

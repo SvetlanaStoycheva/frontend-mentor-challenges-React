@@ -197,7 +197,7 @@ Form
   border: transparent;
   background: var(--bcg-color-tasks);
   width: 100%;
-  padding: 1rem 5rem;
+  padding: 1rem 2rem;
   padding-right: 12rem;
   border-radius: var(--radius);
 }
@@ -210,22 +210,34 @@ form {
 }
 .form-btn {
   position: absolute;
-  top: 24%;
-  left: 5.5%;
-  font-size: 1.25rem;
-  border: var(--border-btn) 2px solid;
-  border-radius: 50%;
-  color: var(--bcg-color-tasks);
+  top: 30%;
+  right: 5%;
+  border: transparent;
   background: transparent;
   display: grid;
-  place-items: center;
+  grid-template-columns: auto 1fr;
+  align-items: center;
+  color: var(--clr-tasks);
   transition: var(--transition);
   cursor: pointer;
 }
 .form-btn:hover {
-  border-image-slice: 1;
-  border-image-source: var(--check-bcg);
+  transform: scale(1.05);
 }
+.submit-text {
+  font-size: 0.9rem;
+  text-transform: capitalize;
+  color: var(--clr-tasks);
+  letter-spacing: 0.04rem;
+}
+.submit-icon {
+  color: red;
+  font-size: 1.1rem;
+  margin-right: 0.2rem;
+  display: flex;
+  align-items: center;
+}
+
 @media screen and (min-width: 800px) {
   .form-list-container {
     top: 34%;
@@ -234,7 +246,7 @@ form {
   .form-input {
     border: transparent;
     width: 100%;
-    padding: 1rem 5rem;
+    padding: 1rem 2rem;
     padding-right: 12rem;
     border-radius: 6px;
   }
@@ -272,7 +284,6 @@ List
   color: var(--bcg-color-tasks);
   background: transparent;
   display: grid;
-  /* place-items: center; */
   transition: var(--transition);
   cursor: pointer;
 }
@@ -310,8 +321,11 @@ List
   color: var(--border-btn);
   font-size: 1.5rem;
   cursor: pointer;
+  transition: var(--transition);
 }
-
+.close-btn-task:hover {
+  transform: scale(1.05);
+}
 /* Footer */
 .footer-task-container {
   background: var(--bcg-color-tasks);
@@ -368,18 +382,34 @@ List
   color: blue;
 }
 @media screen and (min-width: 800px) {
+  .footer-task-container {
+    padding: 1.2rem 1.5rem;
+  }
   .big-screen-visible {
-    display: inline;
+    display: inline-block;
   }
   .footer-list {
     display: none;
+  }
+  .big-screen-visible-container {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    justify-items: center;
+    width: 10rem;
   }
   .footer-task-container button {
     font-size: 0.7rem;
   }
   .big-screen-visible-container button {
     color: var(--clr-footer-grey);
-    margin-left: 0.4rem;
-    margin-right: 0.4rem;
+  }
+}
+@media screen and (min-width: 1100px) {
+  .big-screen-visible-container {
+    width: 16rem;
+  }
+  .footer-task-container button {
+    font-size: 0.9rem;
+    letter-spacing: 0.1rem;
   }
 }
