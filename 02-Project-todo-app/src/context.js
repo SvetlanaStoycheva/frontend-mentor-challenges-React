@@ -30,10 +30,10 @@ export const Provider = ({ children }) => {
     dispatch({ type: 'DELETE_ITEM', payload: id });
   };
 
-  const setTaskComleted = (e) => {
+  const toggleTaskComleted = (e) => {
     const currentButton = e.currentTarget;
     const id = currentButton.id;
-    dispatch({ type: 'SET_TASK_COMPLETED', payload: id });
+    dispatch({ type: 'TOGGLE_TASK_COMPLETED', payload: id });
   };
 
   const clearCompleted = () => {
@@ -50,7 +50,7 @@ export const Provider = ({ children }) => {
         ...state,
         handleAddTask,
         deleteItem,
-        setTaskComleted,
+        toggleTaskComleted,
         clearCompleted,
       }}
     >

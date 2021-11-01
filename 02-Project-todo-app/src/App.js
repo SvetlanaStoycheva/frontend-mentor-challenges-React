@@ -15,11 +15,6 @@ const getStorageTheme = () => {
   } else {
     return 'light';
   }
-  // let theme = 'light';
-  // if (localStorage.getItem(theme)) {
-  //   theme = localStorage.getItem('theme');
-  // }
-  // return theme;
 };
 
 function App() {
@@ -53,6 +48,7 @@ function App() {
           {theme === 'light' ? <FaMoon /> : <RiSunFill />}
         </button>
       </div>
+      {/* form */}
       <div className='form-list-container'>
         <div className='form-container'>
           <form onSubmit={(e) => e.preventDefault()}>

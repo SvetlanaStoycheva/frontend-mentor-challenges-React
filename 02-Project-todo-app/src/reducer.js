@@ -13,10 +13,11 @@ const cart_reducer = (state, action) => {
     );
     return { ...state, currentList: newList };
   }
-  if (action.type === 'SET_TASK_COMPLETED') {
+  if (action.type === 'TOGGLE_TASK_COMPLETED') {
     const newCurrentList = state.currentList.map((item) => {
       if (item.id === action.payload) {
-        item.active = false;
+        item.active = !item.active;
+
         return item;
       }
       return item;

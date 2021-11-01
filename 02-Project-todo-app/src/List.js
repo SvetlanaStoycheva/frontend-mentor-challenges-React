@@ -7,11 +7,11 @@ const List = () => {
   const {
     currentList,
     deleteItem,
-    setTaskComleted,
+    toggleTaskComleted,
     clearCompleted,
   } = useListContext();
 
-  const [list, setList] = useState(currentList);
+  const [list, setList] = useState([]);
   const showActive = () => {
     setList(currentList.filter((item) => item.active));
   };
@@ -21,6 +21,9 @@ const List = () => {
   const showAll = () => {
     setList(currentList);
   };
+  useEffect(() => {
+    setList(currentList);
+  }, [currentList]);
 
   return (
     <section className='section-list'>
@@ -33,7 +36,7 @@ const List = () => {
               className={`${
                 active ? 'task-btn' : 'task-btn task-btn-completed'
               }`}
-              onClick={setTaskComleted}
+              onClick={toggleTaskComleted}
               id={id}
             >
               <AiOutlineCheckCircle />
@@ -51,7 +54,7 @@ const List = () => {
       })}
 
       <div className='footer-task-container'>
-        <button>{currentList.length} items left</button>
+        <button>{list.length} items left</button>
         <div className='big-screen-visible-container'>
           <button className='big-screen-visible' onClick={showAll}>
             All
