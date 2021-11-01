@@ -1,9 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import List from './List';
-import { useListContext } from './context';
+import Form from './Form';
 import { RiSunFill } from 'react-icons/ri';
 import { FaMoon } from 'react-icons/fa';
-import { AiOutlineCheckCircle } from 'react-icons/ai';
 
 import bcgLightImage from './images/bg-desktop-light.jpg';
 import bcgDarkImage from './images/bg-desktop-dark.jpg';
@@ -18,7 +17,6 @@ const getStorageTheme = () => {
 };
 
 function App() {
-  const { handleAddTask, taskInput } = useListContext();
   const [theme, setTheme] = useState(getStorageTheme());
 
   const handleToggle = () => {
@@ -48,22 +46,8 @@ function App() {
           {theme === 'light' ? <FaMoon /> : <RiSunFill />}
         </button>
       </div>
-      {/* form */}
       <div className='form-list-container'>
-        <div className='form-container'>
-          <form onSubmit={(e) => e.preventDefault()}>
-            <button className='form-btn'>
-              <AiOutlineCheckCircle />
-            </button>
-            <input
-              type='text'
-              className='form-input'
-              placeholder='Create a new todo...'
-              value={taskInput}
-              onClick={(e) => handleAddTask(e.target.value)}
-            />
-          </form>
-        </div>
+        <Form />
         <List />
       </div>
     </main>
