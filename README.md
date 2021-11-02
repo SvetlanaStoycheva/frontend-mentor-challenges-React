@@ -48,11 +48,11 @@
 - Toggle light and dark mode
 
 <p align-items: center>
-    <img src='readme-images/Screenshot-todo-app-01' width='250'>
+    <img src='readme-images/Screenshot-todo-app-01.png' width='250'>
 </p>
 <br/>
 <p align-items: center>
-    <img src='readme-images/Screenshot-todo-app-02' width='250'>
+    <img src='readme-images/Screenshot-todo-app-02.png' width='250'>
 </p>
 <br/>
 
