@@ -44,7 +44,17 @@
 - Delete todos from the list
 - Filter by all/active/complete todos
 - Clear all completed todos
+- Save the user todo list on localStorage
 - Toggle light and dark mode
+
+<p align-items: center>
+    <img src='readme-images/Screenshot-todo-app-01' width='250'>
+</p>
+<br/>
+<p align-items: center>
+    <img src='readme-images/Screenshot-todo-app-02' width='250'>
+</p>
+<br/>
 
 3. IP Address Tracker
 
